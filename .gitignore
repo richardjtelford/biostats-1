@@ -19,8 +19,9 @@
 data/
 
 #figures & output
-*.png
-*.html
+
+#*.html
+
 *.jpeg
 *.md
 *.ai
