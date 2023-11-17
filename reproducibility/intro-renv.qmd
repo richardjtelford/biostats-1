@@ -1,0 +1,216 @@
+---
+title: "Will your code work in 2033?"
+date: today
+author: Richard J Telford
+format: revealjs
+editor: visual
+code-annotations: hover
+---
+
+```{r}
+#| label: setup
+#| message: false
+
+library(tidyverse)
+```
+
+
+# Everything Changes, your code changes not
+
+## R changes
+
+### R < 3.6.0
+
+```{r}
+#| echo: true
+#| eval: false
+set.seed(1)
+sample(LETTERS, size = 1)
+```
+
+```{r}
+#| warning: false
+RNGkind(sample.kind = "Rounding")
+set.seed(1)
+sample(LETTERS, size = 1)
+```
+::: {.fragment}
+### R >= 3.6.0
+
+```{r}
+#| echo: true
+#| eval: false
+set.seed(1)
+sample(LETTERS, size = 1)
+```
+
+```{r}
+#| output-location: fragment
+RNGkind(sample.kind = "default")
+set.seed(1)
+sample(LETTERS, size = 1)
+```
+:::
+
+## Packages Change
+
+```{r}
+#| error: true
+#| echo: true
+#| output-location: fragment
+library(ggplot2)
+data(penguins, package = "palmerpenguins")
+
+ggplot(penguins, aes(x = species, y = body_mass_g)) +
+  geom_bar(position = "dodge") +
+  opts(legend.position = "top")               # <1>
+```
+1. `opts`? What are `opts`
+       
+::: {.fragment}
+
+### ggplot2 News June 2012
+
+```
+ggplot2 0.9.2
+
+----------------------------------------------------------------
+
+THEME SYSTEM
+
+* The `opts()` function has been renamed to `theme()`.
+```
+:::
+
+## Solutions 
+
+```{r}
+n_sol <- 4
+
+d <- tibble(
+  region = rep(c("Reproducibility", "Ease of use"), each = 3),
+  x = c(0, 1, 1, 0, 0, 1) * n_sol, 
+  y = c(0, 0, .9, 1, .1, 1)
+    )
+
+d |> ggplot(aes(x = x, y = y, fill = region)) +
+  geom_polygon() +
+  scale_x_continuous(expand  = c(0, 0)) +
+  scale_y_continuous(expand  = c(0, 0)) +
+  labs(y = NULL, x = "Solution", title = "Tradeoffs") +
+  theme_minimal(base_size = 20) +
+  theme(axis.text.y = element_blank(), 
+        legend.position = "none", 
+        panel.grid = element_blank()) +
+  annotate(geom = "text", x = 0.9 * n_sol, y = 0.2, label = "Reproducibility", size = 10, hjust = 1) +
+  annotate(geom = "text", x = 0.1 * n_sol, y = 0.8, label = "Ease of use", size = 10, hjust = 0) 
+
+```
+
+## Solution 0: naming packages used
+
+> values were analysed in R (R Core Team, 2017) using the qqman package (Turner, 2014).
+
+## Citing R
+
+```{r}
+#| echo: true
+# Citation for R
+citation()
+```
+
+## Citing R packages
+
+```{r}
+#| echo: true
+# Citation for an R package
+citation("lme4")
+```
+
+
+## Solution 1: naming packages used
+
+> Numerical analyses were carried out using R v. 2.15.3 (R Core Team 2013) using the vegan package v. 2.0-9 (Oksanen et al. 2013).
+
+Which packages to cite? 
+
+Potentially hundreds of packages used directly and indirectly.
+
+## Finding package versions
+
+```{markdown}
+#| echo: true
+Numerical analyses were carried out using R v. `r getRversion()`
+(R Core Team 2013) using the vegan package v.`r packageVersion("vegan")`
+(Oksanen et al. 2013).
+```
+
+## Solution 2: `renv` for reproducible R environment
+
+- detect which packages you use and their dependencies
+- keeps a **lockfile** - a list of the version of ALL the packages installed
+- makes a project library
+
+- will install correct version of packages in the lockfile when you start using a project
+
+
+## Demo `renv`
+
+1. Make a new rstudio project.
+2. Run `renv::init()`
+3. Add an R script file with some `library()` calls
+4. Install packages with `renv::install()` (both CRAN and GitHub)
+5. Run `renv::status()`
+6. Run `renv::snapshot()` to save changes or `renv::restore()` to revert
+6. Repeat 3--5
+
+## Using someone elses project with `renv`
+
+1. Clone the repo
+2. Open in RStudio
+3. use `renv::restore()` to install packages
+
+## Pitfalls
+
+- `renv` only valid for the version of R it was built on
+- not all package can be discovered
+  - finds `library(dplyr)`, `tidyr::nest(...)` and dependencies
+  
+```{r}
+#| eval: false
+#| echo: true
+
+tar_option_set(
+  packages = c("tidyverse")
+)
+```
+  
+  - solution use `targets::tar_renv()`
+  - solution use R file with `library()` calls
+
+- Don't forget to `renv::update()` packages to benefit from bugfixes.
+
+
+## Solution 3: Containers
+
+`renv` makes the list of packages available. 
+
+Does nothing for the all the external dependencies. 
+
+- docker
+
+- Nix
+
+## Solution 3: Rocker - Docker for R
+
+[![Rocker](https://rocker-project.org/img/rocker.png)](https://rocker-project.org/)
+
+
+## Solution 4: Nix - package manager  
+
+Non-trivial
+
+## Remaining problems
+
+- dependencies on external API (e.g. gbif, leaflet)
+
