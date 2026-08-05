@@ -96,12 +96,12 @@ For example, the [Environmetrics](https://cran.r-project.org/web/views/Environme
 
 Not all R packages are available on CRAN. 
 Some packages in development are only available on [github.com](github.com).
-Packages on github can be installed with the `remotes` package.
+Packages on github can be installed with the `pak` package.
 
 ```{r install-github, eval = FALSE}
-install.packages("remotes")
+install.packages("pak")
 #ggvegan for plotting ordinations is only on github
-remotes::install_github("gavinsimpson/ggvegan")
+pak::pak("gavinsimpson/ggvegan")
 ```
 
 ## Debugging failed package installation
