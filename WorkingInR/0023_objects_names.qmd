@@ -231,7 +231,7 @@ To make datasets in packages available you can either load the package with `lib
 
 ```{r data, error = TRUE}
 sleepstudy # not available yet
-data(lme4, package = "sleepstudy")
+data(sleepstudy, package = "lme4")
 sleepstudy # available now
 ```
 
