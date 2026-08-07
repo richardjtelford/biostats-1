@@ -2,14 +2,20 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.8.20">
+<meta name="generator" content="quarto-1.10.18">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 <title>5&nbsp; Installing packages – Working in R</title>
 <style>
-code{white-space: pre-wrap;}
+/* Default styles provided by pandoc.
+** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+*/
 span.smallcaps{font-variant: small-caps;}
-div.columns{display: flex; gap: min(4vw, 1.5em);}
-div.column{flex: auto; overflow-x: auto;}
+div.columns{display: flex; gap: 1.5em;}
+div.column{flex: auto;}
+@media screen {
+div.columns{gap: min(4vw, 1.5em);}
+div.column{overflow-x: auto;}
+}
 div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
 ul.task-list{list-style: none;}
 ul.task-list li input[type="checkbox"] {
@@ -66,19 +72,18 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <link href="./../figures/favicon.png" rel="icon" type="image/png">
 <script src="site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
-<script src="site_libs/quarto-html/axe/axe-check.js" type="module"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="site_libs/quarto-html/anchor.min.js"></script>
 <link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-7fcc278e5cff05d3108fdca62cff0c71.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-dark-5aa1d2b69dd70a877b51c7f7d5713d8d.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-7fcc278e5cff05d3108fdca62cff0c71.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-3419ea62b3ca2d77d3d547f86109e84e.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-dark-eaeb381c6b7494c50009502241a4985c.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-3419ea62b3ca2d77d3d547f86109e84e.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-5104340a04435264153ef873f23f72c3.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="site_libs/bootstrap/bootstrap-dark-5494b68deea9f9baeb7399c3c408f1fa.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
-<link href="site_libs/bootstrap/bootstrap-5104340a04435264153ef873f23f72c3.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light"><script id="quarto-search-options" type="application/json">{
+<link href="site_libs/bootstrap/bootstrap-90aabdb2e4637051009e3612dd0961bb.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-dark-ce13f9718736400fd3bf862a89d0a2e9.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="site_libs/bootstrap/bootstrap-90aabdb2e4637051009e3612dd0961bb.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light"><script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
   "collapse-after": 3,
@@ -293,9 +298,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     </div>
   </nav></header><!-- content --><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
 <!-- sidebar -->
-  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto"><div class="pt-lg-2 mt-2 text-left sidebar-header sidebar-header-stacked">
-      <a href="./index.html" class="sidebar-logo-link">
-      </a>
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto"><div class="pt-lg-2 mt-2 text-left sidebar-header">
     <div class="sidebar-title mb-0 py-0">
       <a href="./">Working in R</a> 
         <div class="sidebar-tools-main tools-wide">
@@ -510,20 +513,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./140_maps.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">24</span>&nbsp; <span class="chapter-title">Making maps in R</span></span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
   <a href="./141-mathematical-notation.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">25</span>&nbsp; <span class="chapter-title">Mathematical notation for plots</span></span></a>
+ <span class="menu-text"><span class="chapter-number">24</span>&nbsp; <span class="chapter-title">Mathematical notation for plots</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./150_ggplot_environment.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">26</span>&nbsp; <span class="chapter-title">ggplot2 helper packages</span></span></a>
+ <span class="menu-text"><span class="chapter-number">25</span>&nbsp; <span class="chapter-title">ggplot2 helper packages</span></span></a>
   </div>
 </li>
       </ul>
@@ -540,13 +537,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./050_missing_values.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">27</span>&nbsp; <span class="chapter-title">Handling missing values</span></span></a>
+ <span class="menu-text"><span class="chapter-number">26</span>&nbsp; <span class="chapter-title">Handling missing values</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./060_bestiary.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">28</span>&nbsp; <span class="chapter-title">Bestiary of Brackets and other R notation</span></span></a>
+ <span class="menu-text"><span class="chapter-number">27</span>&nbsp; <span class="chapter-title">Bestiary of Brackets and other R notation</span></span></a>
   </div>
 </li>
       </ul>
@@ -569,7 +566,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li>
 <a href="#recommended-packages" id="toc-recommended-packages" class="nav-link" data-scroll-target="#recommended-packages"><span class="header-section-number">5.6</span> Recommended packages</a>
   <ul class="collapse">
-<li><a href="#usethis-and-remotes" id="toc-usethis-and-remotes" class="nav-link" data-scroll-target="#usethis-and-remotes"><span class="header-section-number">5.6.1</span> <code>usethis</code> and <code>remotes</code></a></li>
+<li><a href="#usethis-and-pak" id="toc-usethis-and-pak" class="nav-link" data-scroll-target="#usethis-and-pak"><span class="header-section-number">5.6.1</span> <code>usethis</code> and <code>pak</code></a></li>
   <li><a href="#sec-tidyverse" id="toc-sec-tidyverse" class="nav-link" data-scroll-target="#sec-tidyverse"><span class="header-section-number">5.6.2</span> The tidyverse</a></li>
   <li><a href="#sec-biostatstutorials" id="toc-sec-biostatstutorials" class="nav-link" data-scroll-target="#sec-biostatstutorials"><span class="header-section-number">5.6.3</span> biostats.tutorials</a></li>
   </ul>
@@ -699,24 +696,24 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </section><section id="packages-published-on-github" class="level2" data-number="5.5"><h2 data-number="5.5" class="anchored" data-anchor-id="packages-published-on-github">
 <span class="header-section-number">5.5</span> Packages published on GitHub</h2>
-<p>Not all R packages are available on CRAN. Some packages are only available on <a href="github.com">GitHub.com</a>. If you want to install a package published on <a href="https://github.com/" target="_blank">GitHub</a>, you may use the function <code><a href="https://remotes.r-lib.org/reference/install_github.html">remotes::install_github()</a></code> (install <code>remotes</code> from CRAN first). You need the repo name from GitHub, this given as <code>"name_of_owner/name_of_repo"</code> Here also, you must add quotation marks <code>"</code> <code>"</code>.</p>
+<p>Not all R packages are available on CRAN. Some packages are only available on <a href="github.com">GitHub.com</a>. If you want to install a package published on <a href="https://github.com/" target="_blank">GitHub</a>, you may use the function <code><a href="https://pak.r-lib.org/reference/pak.html">pak::pak()</a></code> (install <code>pak</code> from CRAN first). You need the repo name from GitHub, this given as <code>"name_of_owner/name_of_repo"</code> Here also, you must add quotation marks <code>"</code> <code>"</code>.</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html">install.packages</a></span><span class="op">(</span><span class="st">"remotes"</span><span class="op">)</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html">install.packages</a></span><span class="op">(</span><span class="st">"pak"</span><span class="op">)</span></span>
 <span><span class="co"># ggvegan for plotting ordinations is only on github</span></span>
-<span><span class="fu">remotes</span><span class="fu">::</span><span class="fu"><a href="https://remotes.r-lib.org/reference/install_github.html">install_github</a></span><span class="op">(</span>repo <span class="op">=</span> <span class="st">"gavinsimpson/ggvegan"</span><span class="op">)</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span><span class="fu">pak</span><span class="fu">::</span><span class="fu"><a href="https://pak.r-lib.org/reference/pak.html">pak</a></span><span class="op">(</span>repo <span class="op">=</span> <span class="st">"gavinsimpson/ggvegan"</span><span class="op">)</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </section><section id="recommended-packages" class="level2" data-number="5.6"><h2 data-number="5.6" class="anchored" data-anchor-id="recommended-packages">
 <span class="header-section-number">5.6</span> Recommended packages</h2>
 <p>These packages are ones we recommend you install now:</p>
 <ul>
 <li><code>usethis</code></li>
-<li><code>remotes</code></li>
+<li><code>pak</code></li>
 <li><code>tidyverse</code></li>
 <li><code>biostats.tutorials</code></li>
 </ul>
 <p>These packages will be used throughout the website. There are other packages we will install later.</p>
-<section id="usethis-and-remotes" class="level3" data-number="5.6.1"><h3 data-number="5.6.1" class="anchored" data-anchor-id="usethis-and-remotes">
-<span class="header-section-number">5.6.1</span> <code>usethis</code> and <code>remotes</code>
+<section id="usethis-and-pak" class="level3" data-number="5.6.1"><h3 data-number="5.6.1" class="anchored" data-anchor-id="usethis-and-pak">
+<span class="header-section-number">5.6.1</span> <code>usethis</code> and <code>pak</code>
 </h3>
 <p>These are utility packages that we will use to download course material and packages from GitHub.</p>
 </section><section id="sec-tidyverse" class="level3" data-number="5.6.2"><h3 data-number="5.6.2" class="anchored" data-anchor-id="sec-tidyverse">
@@ -732,8 +729,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span class="header-section-number">5.6.3</span> biostats.tutorials</h3>
 <p>Along with the present website, our team has developed a package with tutorials called <code>biostats.tutorials</code>. This package will help you learn and practice R functions and concepts. Several of the upcoming chapters refer to this package. Install <code>biostats.tutorials</code> with this code:</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb5"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># install.packages("remotes")</span></span>
-<span><span class="fu">remotes</span><span class="fu">::</span><span class="fu"><a href="https://remotes.r-lib.org/reference/install_github.html">install_github</a></span><span class="op">(</span><span class="st">"biostats-r/biostats.tutorials"</span><span class="op">)</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb5"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># install.packages("pak")</span></span>
+<span><span class="fu">pak</span><span class="fu">::</span><span class="fu"><a href="https://pak.r-lib.org/reference/pak.html">pak</a></span><span class="op">(</span><span class="st">"biostats-r/biostats.tutorials"</span><span class="op">)</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <p>Now load the package with <code><a href="https://rdrr.io/r/base/library.html">library(biostats.tutorials)</a></code> and the tutorials should appear in the tab <code>Tutorial</code> (see <a href="0010_Getting_Started_with_RStudio.html#sec-tutorial-tab" class="quarto-xref"><span>Section 2.3.5.2</span></a>). Exercises will tell you when to run a tutorial. Click the “Start Tutorial” button to start the tutorial (this may take a few seconds to start the first time).</p>
 <div class="callout callout-style-default callout-note callout-titled">
@@ -746,7 +743,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Install <code>tidyverse</code>, and <code>remotes</code> from CRAN and <code>biostats.tutorials</code> from GitHub using the code above.</p>
+<p>Install <code>tidyverse</code>, and <code>pak</code> from CRAN and <code>biostats.tutorials</code> from GitHub using the code above.</p>
 </div>
 </div>
 </section></section><section id="debugging-failed-package-installation" class="level2" data-number="5.7"><h2 data-number="5.7" class="anchored" data-anchor-id="debugging-failed-package-installation">
@@ -780,7 +777,8 @@ Attaching package: 'MASS'</code></pre>
 </div>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb9"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">penguins</span> <span class="op">|&gt;</span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html">select</a></span><span class="op">(</span><span class="va">species</span><span class="op">)</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-error">
-<pre><code>Error in select(penguins, species): unused argument (species)</code></pre>
+<pre><code>Error in `select()`:
+! unused argument (species)</code></pre>
 </div>
 </div>
 <p>If you have code that worked one day and fails the next with a weird error messages, it might be because of a name conflict. If you start typing a function name into RStudio, it will show which package the function comes from.</p>
@@ -881,10 +879,10 @@ Or declare a preference with `conflicts_prefer()`:
 <div class="cell-output cell-output-stdout">
 <pre><code>To cite package 'nlme' in publications use:
 
-  Pinheiro J, Bates D, R Core Team (2025). _nlme: Linear and Nonlinear
+  Pinheiro J, Bates D, R Core Team (2026). _nlme: Linear and Nonlinear
   Mixed Effects Models_. doi:10.32614/CRAN.package.nlme
-  &lt;https://doi.org/10.32614/CRAN.package.nlme&gt;, R package version
-  3.1-168, &lt;https://CRAN.R-project.org/package=nlme&gt;.
+  &lt;https://doi.org/10.32614/CRAN.package.nlme&gt;. R package version
+  3.1-170, &lt;https://CRAN.R-project.org/package=nlme&gt;.
 
   Pinheiro JC, Bates DM (2000). _Mixed-Effects Models in S and S-PLUS_.
   Springer, New York. doi:10.1007/b98882
@@ -899,7 +897,7 @@ bibtex=TRUE)', 'toBibtex(.)', or set
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb23"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/utils/packageDescription.html">packageVersion</a></span><span class="op">(</span><span class="st">"nlme"</span><span class="op">)</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] '3.1.168'</code></pre>
+<pre><code>[1] '3.1.170'</code></pre>
 </div>
 </div>
 <p>You should also cite R. Again, the <code>citation</code> function can be used</p>
@@ -908,8 +906,9 @@ bibtex=TRUE)', 'toBibtex(.)', or set
 <div class="cell-output cell-output-stdout">
 <pre><code>To cite R in publications use:
 
-  R Core Team (2025). _R: A Language and Environment for Statistical
+  R Core Team (2026). _R: A Language and Environment for Statistical
   Computing_. R Foundation for Statistical Computing, Vienna, Austria.
+  doi:10.32614/R.manuals &lt;https://doi.org/10.32614/R.manuals&gt;.
   &lt;https://www.R-project.org/&gt;.
 
 A BibTeX entry for LaTeX users is
@@ -919,7 +918,8 @@ A BibTeX entry for LaTeX users is
     author = {{R Core Team}},
     organization = {R Foundation for Statistical Computing},
     address = {Vienna, Austria},
-    year = {2025},
+    year = {2026},
+    doi = {10.32614/R.manuals},
     url = {https://www.R-project.org/},
   }
 
@@ -932,7 +932,7 @@ citing R packages.</code></pre>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb27"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">R.version.string</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] "R version 4.5.2 (2025-10-31)"</code></pre>
+<pre><code>[1] "R version 4.6.1 (2026-06-24)"</code></pre>
 </div>
 </div>
 <p>In quarto you can also use the insert citation tool to add a package to your bibliography.</p>
@@ -947,8 +947,8 @@ citing R packages.</code></pre>
 </div>
 <div class="callout-body-container callout-body">
 <p><strong>Question 1: You have installed the <code>tidyverse</code> package. Which command do you need to use to activate it? </strong></p>
-<div id="radio_ZINRMRLIJN" class="webex-radiogroup">
-<label><input type="radio" autocomplete="off" name="radio_ZINRMRLIJN" value=""><span><code>install.packages("tidyverse")</code></span></label><label><input type="radio" autocomplete="off" name="radio_ZINRMRLIJN" value=""><span><code>libraries(tidyverse)</code></span></label><label><input type="radio" autocomplete="off" name="radio_ZINRMRLIJN" value="answer"><span><code>library(tidyverse</code> <code>)</code></span></label><label><input type="radio" autocomplete="off" name="radio_ZINRMRLIJN" value="answer"><span><code><a href="https://tidyverse.tidyverse.org">library(tidyverse)</a></code></span></label><label><input type="radio" autocomplete="off" name="radio_ZINRMRLIJN" value=""><span><code>package(tidyverse)</code></span></label><label><input type="radio" autocomplete="off" name="radio_ZINRMRLIJN" value=""><span><code>Library(tidyverse)</code></span></label>
+<div id="radio_FMSBNFNCPQ" class="webex-radiogroup">
+<label><input type="radio" autocomplete="off" name="radio_FMSBNFNCPQ" value=""><span><code>install.packages("tidyverse")</code></span></label><label><input type="radio" autocomplete="off" name="radio_FMSBNFNCPQ" value=""><span><code>libraries(tidyverse)</code></span></label><label><input type="radio" autocomplete="off" name="radio_FMSBNFNCPQ" value="answer"><span><code>library(tidyverse</code> <code>)</code></span></label><label><input type="radio" autocomplete="off" name="radio_FMSBNFNCPQ" value="answer"><span><code><a href="https://tidyverse.tidyverse.org">library(tidyverse)</a></code></span></label><label><input type="radio" autocomplete="off" name="radio_FMSBNFNCPQ" value=""><span><code>package(tidyverse)</code></span></label><label><input type="radio" autocomplete="off" name="radio_FMSBNFNCPQ" value=""><span><code>Library(tidyverse)</code></span></label>
 </div>
 </div>
 </div>
@@ -1253,13 +1253,14 @@ window.onload = function() {
       e.clearSelection();
     }
     const getTextToCopy = function(trigger) {
-        const codeEl = trigger.previousElementSibling.cloneNode(true);
-        for (const childEl of codeEl.children) {
-          if (isCodeAnnotation(childEl)) {
-            childEl.remove();
-          }
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
         }
-        return codeEl.innerText;
+      }
+      return codeEl.innerText;
     }
     const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
       text: getTextToCopy
@@ -1293,16 +1294,16 @@ window.onload = function() {
     }
     function toggleCodeHandler(show) {
       return function(e) {
-        const detailsSrc = window.document.querySelectorAll(".cell > details > .sourceCode");
-        for (let i=0; i<detailsSrc.length; i++) {
-          const details = detailsSrc[i].parentElement;
+        const cellDetails = window.document.querySelectorAll(".cell details.code-fold");
+        for (let i=0; i<cellDetails.length; i++) {
+          const details = cellDetails[i];
           if (show) {
             details.open = true;
           } else {
             details.removeAttribute("open");
           }
         }
-        const cellCodeDivs = window.document.querySelectorAll(".cell > .sourceCode");
+        const cellCodeDivs = window.document.querySelectorAll(".cell div.sourceCode.cell-code");
         const fromCls = show ? "hidden" : "unhidden";
         const toCls = show ? "unhidden" : "hidden";
         for (let i=0; i<cellCodeDivs.length; i++) {
@@ -1755,13 +1756,13 @@ window.onload = function() {
 <span id="cb31-93"><a href="#cb31-93" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb31-94"><a href="#cb31-94" aria-hidden="true" tabindex="-1"></a>Not all R packages are available on CRAN.</span>
 <span id="cb31-95"><a href="#cb31-95" aria-hidden="true" tabindex="-1"></a>Some packages are only available on <span class="co">[</span><span class="ot">GitHub.com</span><span class="co">](github.com)</span>.</span>
-<span id="cb31-96"><a href="#cb31-96" aria-hidden="true" tabindex="-1"></a>If you want to install a package published on <span class="co">[</span><span class="ot">GitHub</span><span class="co">](https://github.com/)</span>{target="_blank"}, you may use the function <span class="in">`remotes::install_github()`</span> (install <span class="in">`remotes`</span> from CRAN first).</span>
+<span id="cb31-96"><a href="#cb31-96" aria-hidden="true" tabindex="-1"></a>If you want to install a package published on <span class="co">[</span><span class="ot">GitHub</span><span class="co">](https://github.com/)</span>{target="_blank"}, you may use the function <span class="in">`pak::pak()`</span> (install <span class="in">`pak`</span> from CRAN first).</span>
 <span id="cb31-97"><a href="#cb31-97" aria-hidden="true" tabindex="-1"></a>You need the repo name from GitHub, this given as <span class="in">`"name_of_owner/name_of_repo"`</span> Here also, you must add quotation marks <span class="in">`"`</span> <span class="in">`"`</span>.</span>
 <span id="cb31-98"><a href="#cb31-98" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb31-99"><a href="#cb31-99" aria-hidden="true" tabindex="-1"></a><span class="in">```{r install-github, eval = FALSE}</span></span>
-<span id="cb31-100"><a href="#cb31-100" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">"remotes"</span>)</span>
+<span id="cb31-99"><a href="#cb31-99" aria-hidden="true" tabindex="-1"></a><span class="in">```{r pak, eval = FALSE}</span></span>
+<span id="cb31-100"><a href="#cb31-100" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">"pak"</span>)</span>
 <span id="cb31-101"><a href="#cb31-101" aria-hidden="true" tabindex="-1"></a><span class="co"># ggvegan for plotting ordinations is only on github</span></span>
-<span id="cb31-102"><a href="#cb31-102" aria-hidden="true" tabindex="-1"></a>remotes<span class="sc">::</span><span class="fu">install_github</span>(<span class="at">repo =</span> <span class="st">"gavinsimpson/ggvegan"</span>)</span>
+<span id="cb31-102"><a href="#cb31-102" aria-hidden="true" tabindex="-1"></a>pak<span class="sc">::</span><span class="fu">pak</span>(<span class="at">repo =</span> <span class="st">"gavinsimpson/ggvegan"</span>)</span>
 <span id="cb31-103"><a href="#cb31-103" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
 <span id="cb31-104"><a href="#cb31-104" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb31-105"><a href="#cb31-105" aria-hidden="true" tabindex="-1"></a><span class="fu">## Recommended packages</span></span>
@@ -1769,14 +1770,14 @@ window.onload = function() {
 <span id="cb31-107"><a href="#cb31-107" aria-hidden="true" tabindex="-1"></a>These packages are ones we recommend you install now:</span>
 <span id="cb31-108"><a href="#cb31-108" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb31-109"><a href="#cb31-109" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span><span class="in">`usethis`</span></span>
-<span id="cb31-110"><a href="#cb31-110" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span><span class="in">`remotes`</span></span>
+<span id="cb31-110"><a href="#cb31-110" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span><span class="in">`pak`</span></span>
 <span id="cb31-111"><a href="#cb31-111" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span><span class="in">`tidyverse`</span></span>
 <span id="cb31-112"><a href="#cb31-112" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span><span class="in">`biostats.tutorials`</span></span>
 <span id="cb31-113"><a href="#cb31-113" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb31-114"><a href="#cb31-114" aria-hidden="true" tabindex="-1"></a>These packages will be used throughout the website.</span>
 <span id="cb31-115"><a href="#cb31-115" aria-hidden="true" tabindex="-1"></a>There are other packages we will install later.</span>
 <span id="cb31-116"><a href="#cb31-116" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb31-117"><a href="#cb31-117" aria-hidden="true" tabindex="-1"></a><span class="fu">### `usethis` and `remotes`</span></span>
+<span id="cb31-117"><a href="#cb31-117" aria-hidden="true" tabindex="-1"></a><span class="fu">### `usethis` and `pak`</span></span>
 <span id="cb31-118"><a href="#cb31-118" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb31-119"><a href="#cb31-119" aria-hidden="true" tabindex="-1"></a>These are utility packages that we will use to download course material and packages from GitHub.</span>
 <span id="cb31-120"><a href="#cb31-120" aria-hidden="true" tabindex="-1"></a></span>
@@ -1804,8 +1805,8 @@ window.onload = function() {
 <span id="cb31-142"><a href="#cb31-142" aria-hidden="true" tabindex="-1"></a>Install <span class="in">`biostats.tutorials`</span> with this code:</span>
 <span id="cb31-143"><a href="#cb31-143" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb31-144"><a href="#cb31-144" aria-hidden="true" tabindex="-1"></a><span class="in">```{r install-the-tutorial, echo=TRUE, eval=FALSE}</span></span>
-<span id="cb31-145"><a href="#cb31-145" aria-hidden="true" tabindex="-1"></a><span class="co"># install.packages("remotes")</span></span>
-<span id="cb31-146"><a href="#cb31-146" aria-hidden="true" tabindex="-1"></a>remotes<span class="sc">::</span><span class="fu">install_github</span>(<span class="st">"biostats-r/biostats.tutorials"</span>)</span>
+<span id="cb31-145"><a href="#cb31-145" aria-hidden="true" tabindex="-1"></a><span class="co"># install.packages("pak")</span></span>
+<span id="cb31-146"><a href="#cb31-146" aria-hidden="true" tabindex="-1"></a>pak<span class="sc">::</span><span class="fu">pak</span>(<span class="st">"biostats-r/biostats.tutorials"</span>)</span>
 <span id="cb31-147"><a href="#cb31-147" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
 <span id="cb31-148"><a href="#cb31-148" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb31-149"><a href="#cb31-149" aria-hidden="true" tabindex="-1"></a>Now load the package with <span class="in">`library(biostats.tutorials)`</span> and the tutorials should appear in the tab <span class="in">`Tutorial`</span> (see @sec-tutorial-tab).</span>
@@ -1815,7 +1816,7 @@ window.onload = function() {
 <span id="cb31-153"><a href="#cb31-153" aria-hidden="true" tabindex="-1"></a>::: callout-note</span>
 <span id="cb31-154"><a href="#cb31-154" aria-hidden="true" tabindex="-1"></a><span class="fu">## Exercise</span></span>
 <span id="cb31-155"><a href="#cb31-155" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb31-156"><a href="#cb31-156" aria-hidden="true" tabindex="-1"></a>Install <span class="in">`tidyverse`</span>, and <span class="in">`remotes`</span> from CRAN and <span class="in">`biostats.tutorials`</span> from GitHub using the code above.</span>
+<span id="cb31-156"><a href="#cb31-156" aria-hidden="true" tabindex="-1"></a>Install <span class="in">`tidyverse`</span>, and <span class="in">`pak`</span> from CRAN and <span class="in">`biostats.tutorials`</span> from GitHub using the code above.</span>
 <span id="cb31-157"><a href="#cb31-157" aria-hidden="true" tabindex="-1"></a>:::</span>
 <span id="cb31-158"><a href="#cb31-158" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb31-159"><a href="#cb31-159" aria-hidden="true" tabindex="-1"></a><span class="fu">## Debugging failed package installation</span></span>

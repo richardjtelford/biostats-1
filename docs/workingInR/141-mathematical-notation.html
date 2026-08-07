@@ -2,14 +2,20 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.8.20">
+<meta name="generator" content="quarto-1.10.18">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
-<title>25&nbsp; Mathematical notation for plots – Working in R</title>
+<title>24&nbsp; Mathematical notation for plots – Working in R</title>
 <style>
-code{white-space: pre-wrap;}
+/* Default styles provided by pandoc.
+** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+*/
 span.smallcaps{font-variant: small-caps;}
-div.columns{display: flex; gap: min(4vw, 1.5em);}
-div.column{flex: auto; overflow-x: auto;}
+div.columns{display: flex; gap: 1.5em;}
+div.column{flex: auto;}
+@media screen {
+div.columns{gap: min(4vw, 1.5em);}
+div.column{overflow-x: auto;}
+}
 div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
 ul.task-list{list-style: none;}
 ul.task-list li input[type="checkbox"] {
@@ -62,23 +68,22 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
 <link href="./150_ggplot_environment.html" rel="next">
-<link href="./140_maps.html" rel="prev">
+<link href="./130_patchwork.html" rel="prev">
 <link href="./../figures/favicon.png" rel="icon" type="image/png">
 <script src="site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
-<script src="site_libs/quarto-html/axe/axe-check.js" type="module"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="site_libs/quarto-html/anchor.min.js"></script>
 <link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-7fcc278e5cff05d3108fdca62cff0c71.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-dark-5aa1d2b69dd70a877b51c7f7d5713d8d.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-7fcc278e5cff05d3108fdca62cff0c71.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-3419ea62b3ca2d77d3d547f86109e84e.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-dark-eaeb381c6b7494c50009502241a4985c.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-3419ea62b3ca2d77d3d547f86109e84e.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-5104340a04435264153ef873f23f72c3.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="site_libs/bootstrap/bootstrap-dark-5494b68deea9f9baeb7399c3c408f1fa.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
-<link href="site_libs/bootstrap/bootstrap-5104340a04435264153ef873f23f72c3.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light"><script id="quarto-search-options" type="application/json">{
+<link href="site_libs/bootstrap/bootstrap-90aabdb2e4637051009e3612dd0961bb.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-dark-ce13f9718736400fd3bf862a89d0a2e9.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="site_libs/bootstrap/bootstrap-90aabdb2e4637051009e3612dd0961bb.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light"><script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
   "collapse-after": 3,
@@ -1650,7 +1655,7 @@ globalThis.qwebrExecuteCode = async function (
     }
 }
 
-</script><script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script><script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script><script type="text/javascript">
+</script><script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script><script defer="" src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-chtml.js" type="text/javascript"></script><script type="text/javascript">
 const typesetMath = (el) => {
   if (window.MathJax) {
     // MathJax Typeset
@@ -1855,7 +1860,7 @@ window.Quarto = {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./100_why_data_visualisation.html">Data Visualisation</a></li><li class="breadcrumb-item"><a href="./141-mathematical-notation.html"><span class="chapter-number">25</span>&nbsp; <span class="chapter-title">Mathematical notation for plots</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./100_why_data_visualisation.html">Data Visualisation</a></li><li class="breadcrumb-item"><a href="./141-mathematical-notation.html"><span class="chapter-number">24</span>&nbsp; <span class="chapter-title">Mathematical notation for plots</span></a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -1864,9 +1869,7 @@ window.Quarto = {
     </div>
   </nav></header><!-- content --><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
 <!-- sidebar -->
-  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto"><div class="pt-lg-2 mt-2 text-left sidebar-header sidebar-header-stacked">
-      <a href="./index.html" class="sidebar-logo-link">
-      </a>
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto"><div class="pt-lg-2 mt-2 text-left sidebar-header">
     <div class="sidebar-title mb-0 py-0">
       <a href="./">Working in R</a> 
         <div class="sidebar-tools-main tools-wide">
@@ -2081,20 +2084,14 @@ window.Quarto = {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./140_maps.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">24</span>&nbsp; <span class="chapter-title">Making maps in R</span></span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
   <a href="./141-mathematical-notation.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text"><span class="chapter-number">25</span>&nbsp; <span class="chapter-title">Mathematical notation for plots</span></span></a>
+ <span class="menu-text"><span class="chapter-number">24</span>&nbsp; <span class="chapter-title">Mathematical notation for plots</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./150_ggplot_environment.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">26</span>&nbsp; <span class="chapter-title">ggplot2 helper packages</span></span></a>
+ <span class="menu-text"><span class="chapter-number">25</span>&nbsp; <span class="chapter-title">ggplot2 helper packages</span></span></a>
   </div>
 </li>
       </ul>
@@ -2111,13 +2108,13 @@ window.Quarto = {
 <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./050_missing_values.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">27</span>&nbsp; <span class="chapter-title">Handling missing values</span></span></a>
+ <span class="menu-text"><span class="chapter-number">26</span>&nbsp; <span class="chapter-title">Handling missing values</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./060_bestiary.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">28</span>&nbsp; <span class="chapter-title">Bestiary of Brackets and other R notation</span></span></a>
+ <span class="menu-text"><span class="chapter-number">27</span>&nbsp; <span class="chapter-title">Bestiary of Brackets and other R notation</span></span></a>
   </div>
 </li>
       </ul>
@@ -2132,11 +2129,11 @@ window.Quarto = {
         <nav id="TOC" role="doc-toc" class="toc-active"><h2 id="toc-title">Table of contents</h2>
    
   <ul>
-<li><a href="#introduction" id="toc-introduction" class="nav-link active" data-scroll-target="#introduction"><span class="header-section-number">25.1</span> Introduction</a></li>
-  <li><a href="#expression" id="toc-expression" class="nav-link" data-scroll-target="#expression"><span class="header-section-number">25.2</span> <code>expression()</code></a></li>
-  <li><a href="#parsing" id="toc-parsing" class="nav-link" data-scroll-target="#parsing"><span class="header-section-number">25.3</span> Parsing</a></li>
-  <li><a href="#troubleshooting" id="toc-troubleshooting" class="nav-link" data-scroll-target="#troubleshooting"><span class="header-section-number">25.4</span> Troubleshooting</a></li>
-  <li><a href="#other-tips" id="toc-other-tips" class="nav-link" data-scroll-target="#other-tips"><span class="header-section-number">25.5</span> Other tips</a></li>
+<li><a href="#introduction" id="toc-introduction" class="nav-link active" data-scroll-target="#introduction"><span class="header-section-number">24.1</span> Introduction</a></li>
+  <li><a href="#expression" id="toc-expression" class="nav-link" data-scroll-target="#expression"><span class="header-section-number">24.2</span> <code>expression()</code></a></li>
+  <li><a href="#parsing" id="toc-parsing" class="nav-link" data-scroll-target="#parsing"><span class="header-section-number">24.3</span> Parsing</a></li>
+  <li><a href="#troubleshooting" id="toc-troubleshooting" class="nav-link" data-scroll-target="#troubleshooting"><span class="header-section-number">24.4</span> Troubleshooting</a></li>
+  <li><a href="#other-tips" id="toc-other-tips" class="nav-link" data-scroll-target="#other-tips"><span class="header-section-number">24.5</span> Other tips</a></li>
   </ul></nav>
     </div>
 <!-- main -->
@@ -2420,9 +2417,9 @@ globalThis.qwebrCreateMonacoEditorInstance = function (cellData) {
   };
   
 }
-</script><header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./100_why_data_visualisation.html">Data Visualisation</a></li><li class="breadcrumb-item"><a href="./141-mathematical-notation.html"><span class="chapter-number">25</span>&nbsp; <span class="chapter-title">Mathematical notation for plots</span></a></li></ol></nav><div class="quarto-title">
+</script><header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./100_why_data_visualisation.html">Data Visualisation</a></li><li class="breadcrumb-item"><a href="./141-mathematical-notation.html"><span class="chapter-number">24</span>&nbsp; <span class="chapter-title">Mathematical notation for plots</span></a></li></ol></nav><div class="quarto-title">
 <div class="quarto-title-block"><div><h1 class="title">
-<span class="chapter-number">25</span>&nbsp; <span class="chapter-title">Mathematical notation for plots</span>
+<span class="chapter-number">24</span>&nbsp; <span class="chapter-title">Mathematical notation for plots</span>
 </h1><button type="button" class="btn code-tools-button" id="quarto-code-tools-source"><i class="bi"></i> code</button></div></div>
 </div>
 
@@ -2439,8 +2436,8 @@ globalThis.qwebrCreateMonacoEditorInstance = function (cellData) {
 
 </header><div id="qwebr-insertion-location-1"></div>
 <noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
-<section id="introduction" class="level2" data-number="25.1"><h2 data-number="25.1" class="anchored" data-anchor-id="introduction">
-<span class="header-section-number">25.1</span> Introduction</h2>
+<section id="introduction" class="level2" data-number="24.1"><h2 data-number="24.1" class="anchored" data-anchor-id="introduction">
+<span class="header-section-number">24.1</span> Introduction</h2>
 <p>When making a publication ready plot, we often need to use special characters and mathematical notation for the axes and other labels.</p>
 <ul>
 <li><span class="math inline">\(TP~concentration~\mu g~l^{-1}\)</span></li>
@@ -2451,8 +2448,8 @@ globalThis.qwebrCreateMonacoEditorInstance = function (cellData) {
 <p>The functions <code><a href="https://rdrr.io/r/base/expression.html">expression()</a></code> and <code><a href="https://rdrr.io/r/base/bquote.html">bquote()</a></code> are powerful tools for annotating figures with mathematical notation in R. This functionality is not immediately obvious from their respective help files. <code>demo(plotmath)</code> and <code><a href="https://rdrr.io/r/grDevices/plotmath.html">?plotmath</a></code> show the huge potential of <code><a href="https://rdrr.io/r/base/expression.html">expression()</a></code>, but do not have many examples relevant to biologists with graphs to label.</p>
 <p>Expressions are comprised of symbols. The expression <span class="math inline">\(TP ~ concentration ~\mu g~l^{-1}\)</span> includes the symbols <span class="math inline">\(TP\)</span>, <span class="math inline">\(concentration\)</span>, <span class="math inline">\(\mu\)</span>, <span class="math inline">\(g\)</span>, <span class="math inline">\(l\)</span>, and <span class="math inline">\(^{-1}\)</span>. In this chapter, you will learn how to generate these symbols and combine them with <code><a href="https://rdrr.io/r/base/expression.html">expression()</a></code>.</p>
 <p>The key to getting expressions to work is to start with something simple, test it and edit until it works, then add the next symbol and repeat. This is the approach we are going to use here.</p>
-</section><section id="expression" class="level2" data-number="25.2"><h2 data-number="25.2" class="anchored" data-anchor-id="expression">
-<span class="header-section-number">25.2</span> <code>expression()</code>
+</section><section id="expression" class="level2" data-number="24.2"><h2 data-number="24.2" class="anchored" data-anchor-id="expression">
+<span class="header-section-number">24.2</span> <code>expression()</code>
 </h2>
 <p>We are going to use <code><a href="https://rdrr.io/r/base/expression.html">expression()</a></code> with <code>labs()</code>, but the same expressions can be used with some other functions that write text on a plot (including base plots). Other functions take a slightly different approach (see section on parsing below).</p>
 <p>The simplest use of expression is take a symbol that is a single word or number.</p>
@@ -2510,26 +2507,26 @@ globalThis.qwebrCreateMonacoEditorInstance = function (cellData) {
 <div class="cell" data-tbl-caption="Some common notation">
 <div id="tbl-common-notation" class="cell quarto-float quarto-figure quarto-figure-center anchored" data-tbl-caption="Some common notation">
 <figure class="quarto-float quarto-float-tbl figure"><figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl quarto-uncaptioned" id="tbl-common-notation-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Table&nbsp;25.1
+Table&nbsp;24.1
 </figcaption><div aria-describedby="tbl-common-notation-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <div class="cell-output-display">
-<div id="clzttdmbpd" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
-<style>#clzttdmbpd table {
+<div id="yvrsykoxgy" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>#yvrsykoxgy table {
   font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-#clzttdmbpd thead, #clzttdmbpd tbody, #clzttdmbpd tfoot, #clzttdmbpd tr, #clzttdmbpd td, #clzttdmbpd th {
+#yvrsykoxgy thead, #yvrsykoxgy tbody, #yvrsykoxgy tfoot, #yvrsykoxgy tr, #yvrsykoxgy td, #yvrsykoxgy th {
   border-style: none;
 }
 
-#clzttdmbpd p {
+#yvrsykoxgy p {
   margin: 0;
   padding: 0;
 }
 
-#clzttdmbpd .gt_table {
+#yvrsykoxgy .gt_table {
   display: table;
   border-collapse: collapse;
   line-height: normal;
@@ -2555,12 +2552,12 @@ Table&nbsp;25.1
   border-left-color: #D3D3D3;
 }
 
-#clzttdmbpd .gt_caption {
+#yvrsykoxgy .gt_caption {
   padding-top: 4px;
   padding-bottom: 4px;
 }
 
-#clzttdmbpd .gt_title {
+#yvrsykoxgy .gt_title {
   color: #333333;
   font-size: 125%;
   font-weight: initial;
@@ -2572,7 +2569,7 @@ Table&nbsp;25.1
   border-bottom-width: 0;
 }
 
-#clzttdmbpd .gt_subtitle {
+#yvrsykoxgy .gt_subtitle {
   color: #333333;
   font-size: 85%;
   font-weight: initial;
@@ -2584,7 +2581,7 @@ Table&nbsp;25.1
   border-top-width: 0;
 }
 
-#clzttdmbpd .gt_heading {
+#yvrsykoxgy .gt_heading {
   background-color: #FFFFFF;
   text-align: center;
   border-bottom-color: #FFFFFF;
@@ -2596,13 +2593,13 @@ Table&nbsp;25.1
   border-right-color: #D3D3D3;
 }
 
-#clzttdmbpd .gt_bottom_border {
+#yvrsykoxgy .gt_bottom_border {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
 }
 
-#clzttdmbpd .gt_col_headings {
+#yvrsykoxgy .gt_col_headings {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -2617,7 +2614,7 @@ Table&nbsp;25.1
   border-right-color: #D3D3D3;
 }
 
-#clzttdmbpd .gt_col_heading {
+#yvrsykoxgy .gt_col_heading {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -2637,7 +2634,7 @@ Table&nbsp;25.1
   overflow-x: hidden;
 }
 
-#clzttdmbpd .gt_column_spanner_outer {
+#yvrsykoxgy .gt_column_spanner_outer {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -2649,15 +2646,15 @@ Table&nbsp;25.1
   padding-right: 4px;
 }
 
-#clzttdmbpd .gt_column_spanner_outer:first-child {
+#yvrsykoxgy .gt_column_spanner_outer:first-child {
   padding-left: 0;
 }
 
-#clzttdmbpd .gt_column_spanner_outer:last-child {
+#yvrsykoxgy .gt_column_spanner_outer:last-child {
   padding-right: 0;
 }
 
-#clzttdmbpd .gt_column_spanner {
+#yvrsykoxgy .gt_column_spanner {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
@@ -2669,11 +2666,11 @@ Table&nbsp;25.1
   width: 100%;
 }
 
-#clzttdmbpd .gt_spanner_row {
+#yvrsykoxgy .gt_spanner_row {
   border-bottom-style: hidden;
 }
 
-#clzttdmbpd .gt_group_heading {
+#yvrsykoxgy .gt_group_heading {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -2699,7 +2696,7 @@ Table&nbsp;25.1
   text-align: left;
 }
 
-#clzttdmbpd .gt_empty_group_heading {
+#yvrsykoxgy .gt_empty_group_heading {
   padding: 0.5px;
   color: #333333;
   background-color: #FFFFFF;
@@ -2714,15 +2711,15 @@ Table&nbsp;25.1
   vertical-align: middle;
 }
 
-#clzttdmbpd .gt_from_md > :first-child {
+#yvrsykoxgy .gt_from_md > :first-child {
   margin-top: 0;
 }
 
-#clzttdmbpd .gt_from_md > :last-child {
+#yvrsykoxgy .gt_from_md > :last-child {
   margin-bottom: 0;
 }
 
-#clzttdmbpd .gt_row {
+#yvrsykoxgy .gt_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -2741,7 +2738,7 @@ Table&nbsp;25.1
   overflow-x: hidden;
 }
 
-#clzttdmbpd .gt_stub {
+#yvrsykoxgy .gt_stub {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -2754,7 +2751,7 @@ Table&nbsp;25.1
   padding-right: 5px;
 }
 
-#clzttdmbpd .gt_stub_row_group {
+#yvrsykoxgy .gt_stub_row_group {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -2768,15 +2765,15 @@ Table&nbsp;25.1
   vertical-align: top;
 }
 
-#clzttdmbpd .gt_row_group_first td {
+#yvrsykoxgy .gt_row_group_first td {
   border-top-width: 2px;
 }
 
-#clzttdmbpd .gt_row_group_first th {
+#yvrsykoxgy .gt_row_group_first th {
   border-top-width: 2px;
 }
 
-#clzttdmbpd .gt_summary_row {
+#yvrsykoxgy .gt_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -2786,16 +2783,16 @@ Table&nbsp;25.1
   padding-right: 5px;
 }
 
-#clzttdmbpd .gt_first_summary_row {
+#yvrsykoxgy .gt_first_summary_row {
   border-top-style: solid;
   border-top-color: #D3D3D3;
 }
 
-#clzttdmbpd .gt_first_summary_row.thick {
+#yvrsykoxgy .gt_first_summary_row.thick {
   border-top-width: 2px;
 }
 
-#clzttdmbpd .gt_last_summary_row {
+#yvrsykoxgy .gt_last_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -2805,7 +2802,7 @@ Table&nbsp;25.1
   border-bottom-color: #D3D3D3;
 }
 
-#clzttdmbpd .gt_grand_summary_row {
+#yvrsykoxgy .gt_grand_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -2815,7 +2812,7 @@ Table&nbsp;25.1
   padding-right: 5px;
 }
 
-#clzttdmbpd .gt_first_grand_summary_row {
+#yvrsykoxgy .gt_first_grand_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -2825,7 +2822,7 @@ Table&nbsp;25.1
   border-top-color: #D3D3D3;
 }
 
-#clzttdmbpd .gt_last_grand_summary_row_top {
+#yvrsykoxgy .gt_last_grand_summary_row_top {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -2835,11 +2832,11 @@ Table&nbsp;25.1
   border-bottom-color: #D3D3D3;
 }
 
-#clzttdmbpd .gt_striped {
+#yvrsykoxgy .gt_striped {
   background-color: rgba(128, 128, 128, 0.05);
 }
 
-#clzttdmbpd .gt_table_body {
+#yvrsykoxgy .gt_table_body {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -2848,7 +2845,7 @@ Table&nbsp;25.1
   border-bottom-color: #D3D3D3;
 }
 
-#clzttdmbpd .gt_footnotes {
+#yvrsykoxgy .gt_footnotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -2862,7 +2859,7 @@ Table&nbsp;25.1
   border-right-color: #D3D3D3;
 }
 
-#clzttdmbpd .gt_footnote {
+#yvrsykoxgy .gt_footnote {
   margin: 0px;
   font-size: 90%;
   padding-top: 4px;
@@ -2871,7 +2868,7 @@ Table&nbsp;25.1
   padding-right: 5px;
 }
 
-#clzttdmbpd .gt_sourcenotes {
+#yvrsykoxgy .gt_sourcenotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -2885,7 +2882,7 @@ Table&nbsp;25.1
   border-right-color: #D3D3D3;
 }
 
-#clzttdmbpd .gt_sourcenote {
+#yvrsykoxgy .gt_sourcenote {
   font-size: 90%;
   padding-top: 4px;
   padding-bottom: 4px;
@@ -2893,76 +2890,76 @@ Table&nbsp;25.1
   padding-right: 5px;
 }
 
-#clzttdmbpd .gt_left {
+#yvrsykoxgy .gt_left {
   text-align: left;
 }
 
-#clzttdmbpd .gt_center {
+#yvrsykoxgy .gt_center {
   text-align: center;
 }
 
-#clzttdmbpd .gt_right {
+#yvrsykoxgy .gt_right {
   text-align: right;
   font-variant-numeric: tabular-nums;
 }
 
-#clzttdmbpd .gt_font_normal {
+#yvrsykoxgy .gt_font_normal {
   font-weight: normal;
 }
 
-#clzttdmbpd .gt_font_bold {
+#yvrsykoxgy .gt_font_bold {
   font-weight: bold;
 }
 
-#clzttdmbpd .gt_font_italic {
+#yvrsykoxgy .gt_font_italic {
   font-style: italic;
 }
 
-#clzttdmbpd .gt_super {
+#yvrsykoxgy .gt_super {
   font-size: 65%;
 }
 
-#clzttdmbpd .gt_footnote_marks {
+#yvrsykoxgy .gt_footnote_marks {
   font-size: 75%;
   vertical-align: 0.4em;
   position: initial;
 }
 
-#clzttdmbpd .gt_asterisk {
+#yvrsykoxgy .gt_asterisk {
   font-size: 100%;
   vertical-align: 0;
 }
 
-#clzttdmbpd .gt_indent_1 {
+#yvrsykoxgy .gt_indent_1 {
   text-indent: 5px;
 }
 
-#clzttdmbpd .gt_indent_2 {
+#yvrsykoxgy .gt_indent_2 {
   text-indent: 10px;
 }
 
-#clzttdmbpd .gt_indent_3 {
+#yvrsykoxgy .gt_indent_3 {
   text-indent: 15px;
 }
 
-#clzttdmbpd .gt_indent_4 {
+#yvrsykoxgy .gt_indent_4 {
   text-indent: 20px;
 }
 
-#clzttdmbpd .gt_indent_5 {
+#yvrsykoxgy .gt_indent_5 {
   text-indent: 25px;
 }
 
-#clzttdmbpd .katex-display {
+#yvrsykoxgy .katex-display {
   display: inline-flex !important;
   margin-bottom: 0.75em !important;
 }
 
-#clzttdmbpd div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
+#yvrsykoxgy div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
   height: 0px !important;
 }
 </style>
-<table class="gt_table do-not-create-environment caption-top table table-sm table-striped small" data-quarto-bootstrap="false">
+<table class="gt_table caption-top table table-sm table-striped small" data-quarto-bootstrap="false">
 <thead><tr class="gt_col_headings header">
 <th id="What" class="gt_col_heading gt_columns_bottom_border gt_left" data-quarto-table-cell-role="th" scope="col">What</th>
 <th id="How" class="gt_col_heading gt_columns_bottom_border gt_left" data-quarto-table-cell-role="th" scope="col">How</th>
@@ -3025,8 +3022,8 @@ Table&nbsp;25.1
 </ol>
 <div class="tabset-margin-container"></div><div class="panel-tabset">
 <ul class="nav nav-tabs" role="tablist">
-<li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-1-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-1" role="tab" aria-controls="tabset-1-1" aria-selected="true" aria-current="page">Code</a></li>
-<li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-2" role="tab" aria-controls="tabset-1-2" aria-selected="false">Hint</a></li>
+<li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-1-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-1" role="tab" aria-controls="tabset-1-1" aria-selected="true" href="" aria-current="page">Code</a></li>
+<li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-2" role="tab" aria-controls="tabset-1-2" aria-selected="false" href="">Hint</a></li>
 </ul>
 <div class="tab-content">
 <div id="tabset-1-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-1-1-tab">
@@ -3047,8 +3044,8 @@ Table&nbsp;25.1
 </ol>
 <div class="tabset-margin-container"></div><div class="panel-tabset">
 <ul class="nav nav-tabs" role="tablist">
-<li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-2-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-2-1" role="tab" aria-controls="tabset-2-1" aria-selected="true">Code</a></li>
-<li class="nav-item" role="presentation"><a class="nav-link" id="tabset-2-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-2-2" role="tab" aria-controls="tabset-2-2" aria-selected="false">Hint</a></li>
+<li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-2-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-2-1" role="tab" aria-controls="tabset-2-1" aria-selected="true" href="">Code</a></li>
+<li class="nav-item" role="presentation"><a class="nav-link" id="tabset-2-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-2-2" role="tab" aria-controls="tabset-2-2" aria-selected="false" href="">Hint</a></li>
 </ul>
 <div class="tab-content">
 <div id="tabset-2-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-2-1-tab">
@@ -3069,8 +3066,8 @@ Table&nbsp;25.1
 </ol>
 <div class="tabset-margin-container"></div><div class="panel-tabset">
 <ul class="nav nav-tabs" role="tablist">
-<li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-3-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-3-1" role="tab" aria-controls="tabset-3-1" aria-selected="true">Code</a></li>
-<li class="nav-item" role="presentation"><a class="nav-link" id="tabset-3-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-3-2" role="tab" aria-controls="tabset-3-2" aria-selected="false">Hint</a></li>
+<li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-3-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-3-1" role="tab" aria-controls="tabset-3-1" aria-selected="true" href="">Code</a></li>
+<li class="nav-item" role="presentation"><a class="nav-link" id="tabset-3-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-3-2" role="tab" aria-controls="tabset-3-2" aria-selected="false" href="">Hint</a></li>
 </ul>
 <div class="tab-content">
 <div id="tabset-3-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-3-1-tab">
@@ -3091,8 +3088,8 @@ Table&nbsp;25.1
 </ol>
 <div class="tabset-margin-container"></div><div class="panel-tabset">
 <ul class="nav nav-tabs" role="tablist">
-<li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-4-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-4-1" role="tab" aria-controls="tabset-4-1" aria-selected="true">Code</a></li>
-<li class="nav-item" role="presentation"><a class="nav-link" id="tabset-4-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-4-2" role="tab" aria-controls="tabset-4-2" aria-selected="false">Hint</a></li>
+<li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-4-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-4-1" role="tab" aria-controls="tabset-4-1" aria-selected="true" href="">Code</a></li>
+<li class="nav-item" role="presentation"><a class="nav-link" id="tabset-4-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-4-2" role="tab" aria-controls="tabset-4-2" aria-selected="false" href="">Hint</a></li>
 </ul>
 <div class="tab-content">
 <div id="tabset-4-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-4-1-tab">
@@ -3110,8 +3107,8 @@ Table&nbsp;25.1
 </div>
 </div>
 </div>
-</section><section id="parsing" class="level2" data-number="25.3"><h2 data-number="25.3" class="anchored" data-anchor-id="parsing">
-<span class="header-section-number">25.3</span> Parsing</h2>
+</section><section id="parsing" class="level2" data-number="24.3"><h2 data-number="24.3" class="anchored" data-anchor-id="parsing">
+<span class="header-section-number">24.3</span> Parsing</h2>
 <p>Some functions such as <code>geom_text()</code>, <code>facet_wrap()</code> and <code>scale_x_discrete()</code> do not accept expressions directly. Instead, they parse a string and convert it to an expression. Each function does this a different way! Usually it helps to use <code>mutate()</code> to add columns with the parsable labels if necessary. Here is a minimal example that adds subscripts and superscripts to text, axis labels and facet strips.</p>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb12"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># collate data</span></span>
@@ -3144,11 +3141,15 @@ Table&nbsp;25.1
 <span>  <span class="fu">mutate</span><span class="op">(</span>unit <span class="op">=</span> <span class="fu">case_match</span><span class="op">(</span><span class="va">unit</span>,</span>
 <span>    <span class="st">"conc"</span> <span class="op">~</span> <span class="st">"mg %.% l^{-1}"</span>,</span>
 <span>    <span class="st">"moles"</span> <span class="op">~</span> <span class="st">"mmol %.% l^{-1}"</span></span>
-<span>  <span class="op">)</span><span class="op">)</span> </span>
-<span></span>
-<span></span>
-<span></span>
-<span><span class="fu">ggplot</span><span class="op">(</span><span class="va">dat</span>, <span class="fu">aes</span><span class="op">(</span>x <span class="op">=</span> <span class="va">labels</span>, y <span class="op">=</span> <span class="va">value</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="op">)</span><span class="op">)</span> </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning: There was 1 warning in `mutate()`.
+ℹ In argument: `labels = case_match(...)`.
+Caused by warning:
+! `case_match()` was deprecated in dplyr 1.2.0.
+ℹ Please use `recode_values()` instead.</code></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb14"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu">ggplot</span><span class="op">(</span><span class="va">dat</span>, <span class="fu">aes</span><span class="op">(</span>x <span class="op">=</span> <span class="va">labels</span>, y <span class="op">=</span> <span class="va">value</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span>
 <span>  <span class="fu">geom_col</span><span class="op">(</span><span class="op">)</span> <span class="op">+</span></span>
 <span>  <span class="co"># use parse argument in geom_text()</span></span>
 <span>  <span class="fu">geom_text</span><span class="op">(</span><span class="fu">aes</span><span class="op">(</span>label <span class="op">=</span> <span class="va">labels</span><span class="op">)</span>, </span>
@@ -3167,12 +3168,12 @@ Table&nbsp;25.1
 </div>
 </div>
 </div>
-</section><section id="troubleshooting" class="level2" data-number="25.4"><h2 data-number="25.4" class="anchored" data-anchor-id="troubleshooting">
-<span class="header-section-number">25.4</span> Troubleshooting</h2>
+</section><section id="troubleshooting" class="level2" data-number="24.4"><h2 data-number="24.4" class="anchored" data-anchor-id="troubleshooting">
+<span class="header-section-number">24.4</span> Troubleshooting</h2>
 <p>Expressions, are quite tricky to get right.</p>
 <p>Here are some examples of errors and how to interpret them.</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="fu">expression</span>(Wind speed m<span class="sc">%.%</span>s<span class="sc">^-</span><span class="dv">1</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="fu">expression</span>(Wind speed m<span class="sc">%.%</span>s<span class="sc">^-</span><span class="dv">1</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-error">
 <pre><code>Error in parse(text = input): &lt;text&gt;:1:17: unexpected symbol
 1: expression(Wind speed
@@ -3181,18 +3182,18 @@ Table&nbsp;25.1
 </div>
 <p>You cannot have spaces in expressions unless you quote them. You can use a <code>~</code> instead of a space.</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb15"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/expression.html">expression</a></span><span class="op">(</span><span class="va">Wind</span><span class="op">~</span><span class="va">speed</span><span class="op">~</span><span class="va">m</span><span class="op">%.%</span><span class="va">s</span><span class="op">^</span><span class="op">-</span><span class="fl">1</span><span class="op">)</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb17"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/expression.html">expression</a></span><span class="op">(</span><span class="va">Wind</span><span class="op">~</span><span class="va">speed</span><span class="op">~</span><span class="va">m</span><span class="op">%.%</span><span class="va">s</span><span class="op">^</span><span class="op">-</span><span class="fl">1</span><span class="op">)</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>expression(Wind ~ speed ~ m %.% s^-1)</code></pre>
 </div>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb17"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># or</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb19"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># or</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/base/expression.html">expression</a></span><span class="op">(</span><span class="st">"Wind speed m"</span><span class="op">%.%</span><span class="va">s</span><span class="op">^</span><span class="op">-</span><span class="fl">1</span><span class="op">)</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>expression("Wind speed m" %.% s^-1)</code></pre>
 </div>
 </div>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb19"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="fu">expression</span>(Ca<span class="sc">^</span><span class="dv">2</span><span class="sc">+</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb21"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="fu">expression</span>(Ca<span class="sc">^</span><span class="dv">2</span><span class="sc">+</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-error">
 <pre><code>Error in parse(text = input): &lt;text&gt;:1:17: unexpected ')'
 1: expression(Ca^2+)
@@ -3201,18 +3202,18 @@ Table&nbsp;25.1
 </div>
 <p>The <code>+</code> is a mathematical symbol that expects another symbol after it. To make it work here, quote the <code>+</code> or the <code>2+</code>.</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb21"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/expression.html">expression</a></span><span class="op">(</span><span class="va">Ca</span><span class="op">^</span><span class="fl">2</span><span class="op">*</span><span class="st">'+'</span><span class="op">)</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb23"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/expression.html">expression</a></span><span class="op">(</span><span class="va">Ca</span><span class="op">^</span><span class="fl">2</span><span class="op">*</span><span class="st">'+'</span><span class="op">)</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>expression(Ca^2 * "+")</code></pre>
 </div>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb23"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># or</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb25"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># or</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/base/expression.html">expression</a></span><span class="op">(</span><span class="va">Ca</span><span class="op">^</span><span class="st">"2+"</span><span class="op">)</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>expression(Ca^"2+")</code></pre>
 </div>
 </div>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb25"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="fu">expression</span>(<span class="fu">italic</span>(Betula<span class="sc">~</span>nana)<span class="sc">~</span>%)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb27"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a><span class="fu">expression</span>(<span class="fu">italic</span>(Betula<span class="sc">~</span>nana)<span class="sc">~</span>%)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-error">
 <pre><code>Error in parse(text = input): &lt;text&gt;:1:32: unexpected input
 1: expression(italic(Betula~nana)~%)
@@ -3221,7 +3222,7 @@ Table&nbsp;25.1
 </div>
 <p>The <code>%</code> is a special character, so it need to be quoted.</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb27"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/expression.html">expression</a></span><span class="op">(</span><span class="fu">italic</span><span class="op">(</span><span class="va">Betula</span><span class="op">~</span><span class="va">nana</span><span class="op">)</span><span class="op">~</span><span class="st">'%'</span><span class="op">)</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb29"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/expression.html">expression</a></span><span class="op">(</span><span class="fu">italic</span><span class="op">(</span><span class="va">Betula</span><span class="op">~</span><span class="va">nana</span><span class="op">)</span><span class="op">~</span><span class="st">'%'</span><span class="op">)</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>expression(italic(Betula ~ nana) ~ "%")</code></pre>
 </div>
@@ -3239,8 +3240,8 @@ Table&nbsp;25.1
 <p>Fix the following broken expressions</p>
 <div class="tabset-margin-container"></div><div class="panel-tabset">
 <ul class="nav nav-tabs" role="tablist">
-<li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-5-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-5-1" role="tab" aria-controls="tabset-5-1" aria-selected="true">Code</a></li>
-<li class="nav-item" role="presentation"><a class="nav-link" id="tabset-5-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-5-2" role="tab" aria-controls="tabset-5-2" aria-selected="false">Hint</a></li>
+<li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-5-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-5-1" role="tab" aria-controls="tabset-5-1" aria-selected="true" href="">Code</a></li>
+<li class="nav-item" role="presentation"><a class="nav-link" id="tabset-5-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-5-2" role="tab" aria-controls="tabset-5-2" aria-selected="false" href="">Hint</a></li>
 </ul>
 <div class="tab-content">
 <div id="tabset-5-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-5-1-tab">
@@ -3254,8 +3255,8 @@ Table&nbsp;25.1
 </div>
 <div class="tabset-margin-container"></div><div class="panel-tabset">
 <ul class="nav nav-tabs" role="tablist">
-<li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-6-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-6-1" role="tab" aria-controls="tabset-6-1" aria-selected="true">Code</a></li>
-<li class="nav-item" role="presentation"><a class="nav-link" id="tabset-6-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-6-2" role="tab" aria-controls="tabset-6-2" aria-selected="false">Hint</a></li>
+<li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-6-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-6-1" role="tab" aria-controls="tabset-6-1" aria-selected="true" href="">Code</a></li>
+<li class="nav-item" role="presentation"><a class="nav-link" id="tabset-6-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-6-2" role="tab" aria-controls="tabset-6-2" aria-selected="false" href="">Hint</a></li>
 </ul>
 <div class="tab-content">
 <div id="tabset-6-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-6-1-tab">
@@ -3269,8 +3270,8 @@ Table&nbsp;25.1
 </div>
 </div>
 </div>
-</section><section id="other-tips" class="level2 page-columns page-full" data-number="25.5"><h2 data-number="25.5" class="anchored" data-anchor-id="other-tips">
-<span class="header-section-number">25.5</span> Other tips</h2>
+</section><section id="other-tips" class="level2 page-columns page-full" data-number="24.5"><h2 data-number="24.5" class="anchored" data-anchor-id="other-tips">
+<span class="header-section-number">24.5</span> Other tips</h2>
 <ul>
 <li>
 <code><a href="https://rdrr.io/r/base/bquote.html">bquote()</a></code> (or <code>label_bquote()</code> for facet labels) can be useful if you want to include an R object in the expression.</li>
@@ -3280,7 +3281,7 @@ Table&nbsp;25.1
 </li>
 </ul>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb29"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/expression.html">expression</a></span><span class="op">(</span><span class="va">delta</span><span class="op">^</span><span class="fl">15</span><span class="op">*</span><span class="va">N</span><span class="op">~</span><span class="op">(</span><span class="st">'\u2030'</span><span class="op">)</span><span class="op">)</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb31"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/expression.html">expression</a></span><span class="op">(</span><span class="va">delta</span><span class="op">^</span><span class="fl">15</span><span class="op">*</span><span class="va">N</span><span class="op">~</span><span class="op">(</span><span class="st">'\u2030'</span><span class="op">)</span><span class="op">)</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <ul>
 <li>non-alphanumeric symbols (e.g.&nbsp;%) may need quoting</li>
@@ -3564,13 +3565,14 @@ window.onload = function() {
       e.clearSelection();
     }
     const getTextToCopy = function(trigger) {
-        const codeEl = trigger.previousElementSibling.cloneNode(true);
-        for (const childEl of codeEl.children) {
-          if (isCodeAnnotation(childEl)) {
-            childEl.remove();
-          }
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
         }
-        return codeEl.innerText;
+      }
+      return codeEl.innerText;
     }
     const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
       text: getTextToCopy
@@ -3604,16 +3606,16 @@ window.onload = function() {
     }
     function toggleCodeHandler(show) {
       return function(e) {
-        const detailsSrc = window.document.querySelectorAll(".cell > details > .sourceCode");
-        for (let i=0; i<detailsSrc.length; i++) {
-          const details = detailsSrc[i].parentElement;
+        const cellDetails = window.document.querySelectorAll(".cell details.code-fold");
+        for (let i=0; i<cellDetails.length; i++) {
+          const details = cellDetails[i];
           if (show) {
             details.open = true;
           } else {
             details.removeAttribute("open");
           }
         }
-        const cellCodeDivs = window.document.querySelectorAll(".cell > .sourceCode");
+        const cellCodeDivs = window.document.querySelectorAll(".cell div.sourceCode.cell-code");
         const fromCls = show ? "hidden" : "unhidden";
         const toCls = show ? "unhidden" : "hidden";
         for (let i=0; i<cellCodeDivs.length; i++) {
@@ -3963,424 +3965,424 @@ window.onload = function() {
     }
   });
   </script><nav class="page-navigation"><div class="nav-page nav-page-previous">
-      <a href="./140_maps.html" class="pagination-link" aria-label="Making maps in R">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">24</span>&nbsp; <span class="chapter-title">Making maps in R</span></span>
+      <a href="./130_patchwork.html" class="pagination-link" aria-label="Combining plots">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">23</span>&nbsp; <span class="chapter-title">Combining plots</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
       <a href="./150_ggplot_environment.html" class="pagination-link" aria-label="ggplot2 helper packages">
-        <span class="nav-page-text"><span class="chapter-number">26</span>&nbsp; <span class="chapter-title">ggplot2 helper packages</span></span> <i class="bi bi-arrow-right-short"></i>
+        <span class="nav-page-text"><span class="chapter-number">25</span>&nbsp; <span class="chapter-title">ggplot2 helper packages</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav><div class="modal fade" id="quarto-embedded-source-code-modal" tabindex="-1" aria-labelledby="quarto-embedded-source-code-modal-label" aria-hidden="true"><div class="modal-dialog modal-dialog-scrollable"><div class="modal-content"><div class="modal-header"><h5 class="modal-title" id="quarto-embedded-source-code-modal-label">Source Code</h5><button class="btn-close" data-bs-dismiss="modal"></button></div><div class="modal-body"><div class="">
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb30" data-shortcodes="false"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
-<span id="cb30-2"><a href="#cb30-2" aria-hidden="true" tabindex="-1"></a><span class="an">fig-height:</span><span class="co"> 2</span></span>
-<span id="cb30-3"><a href="#cb30-3" aria-hidden="true" tabindex="-1"></a><span class="an">filters:</span></span>
-<span id="cb30-4"><a href="#cb30-4" aria-hidden="true" tabindex="-1"></a><span class="co">  - webr</span></span>
-<span id="cb30-5"><a href="#cb30-5" aria-hidden="true" tabindex="-1"></a><span class="an">webr:</span><span class="co">  </span></span>
-<span id="cb30-6"><a href="#cb30-6" aria-hidden="true" tabindex="-1"></a><span class="co">  show-startup-message: true    # Display status of webR initialization</span></span>
-<span id="cb30-7"><a href="#cb30-7" aria-hidden="true" tabindex="-1"></a><span class="co">  packages: ['ggplot2', 'tibble'] # Pre-install dependency</span></span>
-<span id="cb30-8"><a href="#cb30-8" aria-hidden="true" tabindex="-1"></a><span class="co">  cell-options:</span></span>
-<span id="cb30-9"><a href="#cb30-9" aria-hidden="true" tabindex="-1"></a><span class="co">    fig-height: 2</span></span>
-<span id="cb30-10"><a href="#cb30-10" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
-<span id="cb30-11"><a href="#cb30-11" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb30-12"><a href="#cb30-12" aria-hidden="true" tabindex="-1"></a><span class="fu"># Mathematical notation for plots</span></span>
-<span id="cb30-13"><a href="#cb30-13" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb30-14"><a href="#cb30-14" aria-hidden="true" tabindex="-1"></a><span class="in">``` {r}</span></span>
-<span id="cb30-15"><a href="#cb30-15" aria-hidden="true" tabindex="-1"></a><span class="co">#| label: setup</span></span>
-<span id="cb30-16"><a href="#cb30-16" aria-hidden="true" tabindex="-1"></a><span class="co">#| include: false</span></span>
-<span id="cb30-17"><a href="#cb30-17" aria-hidden="true" tabindex="-1"></a><span class="fu">source</span>(<span class="st">"R/setup.R"</span>)</span>
-<span id="cb30-18"><a href="#cb30-18" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(gt)</span>
-<span id="cb30-19"><a href="#cb30-19" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb30-20"><a href="#cb30-20" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb30-21"><a href="#cb30-21" aria-hidden="true" tabindex="-1"></a><span class="in">```{webr-r}</span></span>
-<span id="cb30-22"><a href="#cb30-22" aria-hidden="true" tabindex="-1"></a><span class="in">#| label: webr-setup</span></span>
-<span id="cb30-23"><a href="#cb30-23" aria-hidden="true" tabindex="-1"></a><span class="in">#| context: setup</span></span>
-<span id="cb30-24"><a href="#cb30-24" aria-hidden="true" tabindex="-1"></a><span class="in">theme_set(theme_bw())</span></span>
-<span id="cb30-25"><a href="#cb30-25" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb30-26"><a href="#cb30-26" aria-hidden="true" tabindex="-1"></a><span class="in">dat &lt;- tibble(x = 1:5, y = x^2)</span></span>
-<span id="cb30-27"><a href="#cb30-27" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb30-28"><a href="#cb30-28" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb30-29"><a href="#cb30-29" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb30-30"><a href="#cb30-30" aria-hidden="true" tabindex="-1"></a><span class="fu">## Introduction</span></span>
-<span id="cb30-31"><a href="#cb30-31" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb30-32"><a href="#cb30-32" aria-hidden="true" tabindex="-1"></a>When making a publication ready plot, we often need to use special characters and mathematical notation  for the axes and other labels.</span>
-<span id="cb30-33"><a href="#cb30-33" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb30-34"><a href="#cb30-34" aria-hidden="true" tabindex="-1"></a><span class="ss"> - </span>$TP~concentration~\mu g~l^{-1}$</span>
-<span id="cb30-35"><a href="#cb30-35" aria-hidden="true" tabindex="-1"></a><span class="ss"> - </span>$Conductivity~\mu S~cm^{-1}$</span>
-<span id="cb30-36"><a href="#cb30-36" aria-hidden="true" tabindex="-1"></a><span class="ss"> - </span>$\sqrt{Standardised~residuals}$</span>
-<span id="cb30-37"><a href="#cb30-37" aria-hidden="true" tabindex="-1"></a><span class="ss"> - </span>$\delta^{15}N$</span>
-<span id="cb30-38"><a href="#cb30-38" aria-hidden="true" tabindex="-1"></a> </span>
-<span id="cb30-39"><a href="#cb30-39" aria-hidden="true" tabindex="-1"></a>The functions <span class="in">`expression()`</span> and <span class="in">`bquote()`</span> are powerful tools for annotating figures with mathematical notation in R. </span>
-<span id="cb30-40"><a href="#cb30-40" aria-hidden="true" tabindex="-1"></a>This functionality is not immediately obvious from their respective help files. </span>
-<span id="cb30-41"><a href="#cb30-41" aria-hidden="true" tabindex="-1"></a><span class="in">`demo(plotmath)`</span> and <span class="in">`?plotmath`</span> show the huge potential of <span class="in">`expression()`</span>, but do not have many examples relevant to biologists with graphs to label.</span>
-<span id="cb30-42"><a href="#cb30-42" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb30-43"><a href="#cb30-43" aria-hidden="true" tabindex="-1"></a>Expressions are comprised of symbols. </span>
-<span id="cb30-44"><a href="#cb30-44" aria-hidden="true" tabindex="-1"></a>The expression $TP ~ concentration ~\mu g~l^{-1}$ includes the symbols $TP$, $concentration$, $\mu$, $g$, $l$, and $^{-1}$. </span>
-<span id="cb30-45"><a href="#cb30-45" aria-hidden="true" tabindex="-1"></a>In this chapter, you will learn how to generate these symbols and combine them with <span class="in">`expression()`</span>.</span>
-<span id="cb30-46"><a href="#cb30-46" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb30-47"><a href="#cb30-47" aria-hidden="true" tabindex="-1"></a>The key to getting expressions to work is to start with something simple, test it and edit until it works, then add the next symbol and repeat. </span>
-<span id="cb30-48"><a href="#cb30-48" aria-hidden="true" tabindex="-1"></a>This is the approach we are going to use here.</span>
-<span id="cb30-49"><a href="#cb30-49" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb30-50"><a href="#cb30-50" aria-hidden="true" tabindex="-1"></a><span class="fu">## `expression()`</span></span>
-<span id="cb30-51"><a href="#cb30-51" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb30-52"><a href="#cb30-52" aria-hidden="true" tabindex="-1"></a>We are going to use <span class="in">`expression()`</span> with <span class="in">`labs()`</span>, but the same expressions can be used with some other functions that write text on a plot (including base plots). </span>
-<span id="cb30-53"><a href="#cb30-53" aria-hidden="true" tabindex="-1"></a>Other functions take a slightly different approach (see section on parsing below).</span>
-<span id="cb30-54"><a href="#cb30-54" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb30-55"><a href="#cb30-55" aria-hidden="true" tabindex="-1"></a>The simplest use of expression is take a symbol that is a single word or number.</span>
-<span id="cb30-56"><a href="#cb30-56" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb30-59"><a href="#cb30-59" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb30-60"><a href="#cb30-60" aria-hidden="true" tabindex="-1"></a><span class="co">#| label: expression1</span></span>
-<span id="cb30-61"><a href="#cb30-61" aria-hidden="true" tabindex="-1"></a><span class="co">#| fig-alt: &gt;</span></span>
-<span id="cb30-62"><a href="#cb30-62" aria-hidden="true" tabindex="-1"></a><span class="co">#|   Plot of a quadratic relationship with a simple expression for the x-axis.</span></span>
-<span id="cb30-63"><a href="#cb30-63" aria-hidden="true" tabindex="-1"></a><span class="co"># sample data</span></span>
-<span id="cb30-64"><a href="#cb30-64" aria-hidden="true" tabindex="-1"></a>dat <span class="ot">&lt;-</span> <span class="fu">tibble</span>(<span class="at">x =</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">5</span>, <span class="at">y =</span> x<span class="sc">^</span><span class="dv">2</span>)</span>
-<span id="cb30-65"><a href="#cb30-65" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb30-66"><a href="#cb30-66" aria-hidden="true" tabindex="-1"></a><span class="co"># base plot</span></span>
-<span id="cb30-67"><a href="#cb30-67" aria-hidden="true" tabindex="-1"></a>g <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(dat, <span class="fu">aes</span>(<span class="at">x =</span> x, <span class="at">y =</span> y)) <span class="sc">+</span></span>
-<span id="cb30-68"><a href="#cb30-68" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>() </span>
-<span id="cb30-69"><a href="#cb30-69" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb30-70"><a href="#cb30-70" aria-hidden="true" tabindex="-1"></a>g <span class="sc">+</span>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="fu">expression</span>(TP))</span>
-<span id="cb30-71"><a href="#cb30-71" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb30-72"><a href="#cb30-72" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb30-73"><a href="#cb30-73" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb30-74"><a href="#cb30-74" aria-hidden="true" tabindex="-1"></a>Notice that <span class="in">`expression()`</span> does not require quote marks except to enclose spaces or punctuation. </span>
-<span id="cb30-75"><a href="#cb30-75" aria-hidden="true" tabindex="-1"></a>This first example of  <span class="in">`expression()`</span> is entirely pointless except as a starting point for something more complex.</span>
-<span id="cb30-76"><a href="#cb30-76" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb30-77"><a href="#cb30-77" aria-hidden="true" tabindex="-1"></a>If we want two symbols with a space between them, we need to separate them with a tilde <span class="in">`~`</span>. </span>
-<span id="cb30-78"><a href="#cb30-78" aria-hidden="true" tabindex="-1"></a>If we don't want a space, we can separate symbols with <span class="in">`*`</span> (if you actually want a <span class="in">`*`</span>, use <span class="in">`%*%`</span>).</span>
-<span id="cb30-79"><a href="#cb30-79" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb30-82"><a href="#cb30-82" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb30-83"><a href="#cb30-83" aria-hidden="true" tabindex="-1"></a><span class="co">#| label: expression2</span></span>
-<span id="cb30-84"><a href="#cb30-84" aria-hidden="true" tabindex="-1"></a><span class="co">#| fig-alt: &gt; </span></span>
-<span id="cb30-85"><a href="#cb30-85" aria-hidden="true" tabindex="-1"></a><span class="co">#|   A copy of the previous plot with an expression that includes a space.</span></span>
-<span id="cb30-86"><a href="#cb30-86" aria-hidden="true" tabindex="-1"></a>g <span class="sc">+</span> <span class="fu">labs</span>(<span class="at">x =</span> <span class="fu">expression</span>(TP<span class="sc">~</span>concentration))</span>
-<span id="cb30-87"><a href="#cb30-87" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb30-88"><a href="#cb30-88" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb30-89"><a href="#cb30-89" aria-hidden="true" tabindex="-1"></a>Some symbols have special meanings, for example, to get a Greek letter, write its name in lower case. </span>
-<span id="cb30-90"><a href="#cb30-90" aria-hidden="true" tabindex="-1"></a>Capitalise the first letter to get an upper-case Greek letter. </span>
-<span id="cb30-91"><a href="#cb30-91" aria-hidden="true" tabindex="-1"></a>If for some reason you want to have "beta" written on your plot, it must be in quotes.</span>
-<span id="cb30-92"><a href="#cb30-92" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb30-95"><a href="#cb30-95" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb30-96"><a href="#cb30-96" aria-hidden="true" tabindex="-1"></a><span class="co">#| label: expression3</span></span>
-<span id="cb30-97"><a href="#cb30-97" aria-hidden="true" tabindex="-1"></a><span class="co">#| fig-alt: &gt;</span></span>
-<span id="cb30-98"><a href="#cb30-98" aria-hidden="true" tabindex="-1"></a><span class="co">#|   A copy of the previous plot with an expression that includes a</span></span>
-<span id="cb30-99"><a href="#cb30-99" aria-hidden="true" tabindex="-1"></a><span class="co">#|   Greek symbol.</span></span>
-<span id="cb30-100"><a href="#cb30-100" aria-hidden="true" tabindex="-1"></a>g <span class="sc">+</span> <span class="fu">labs</span>(<span class="at">x =</span> <span class="fu">expression</span>(TP<span class="sc">~</span>concentration<span class="sc">~</span>mu<span class="sc">*</span>g))</span>
-<span id="cb30-101"><a href="#cb30-101" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb30-102"><a href="#cb30-102" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb30-103"><a href="#cb30-103" aria-hidden="true" tabindex="-1"></a>Subscript or superscript can be added to a string using <span class="in">`^`</span> and <span class="in">`[]`</span> notation respectively. </span>
-<span id="cb30-104"><a href="#cb30-104" aria-hidden="true" tabindex="-1"></a>If you want more than one symbol to be in superscript, you need to enclose them in braces <span class="in">`{}`</span>.</span>
-<span id="cb30-105"><a href="#cb30-105" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb30-108"><a href="#cb30-108" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb30-109"><a href="#cb30-109" aria-hidden="true" tabindex="-1"></a><span class="co">#| label: expression4</span></span>
-<span id="cb30-110"><a href="#cb30-110" aria-hidden="true" tabindex="-1"></a><span class="co">#| fig-alt: &gt;</span></span>
-<span id="cb30-111"><a href="#cb30-111" aria-hidden="true" tabindex="-1"></a><span class="co">#|   A copy of the previous plot with an expression that includes</span></span>
-<span id="cb30-112"><a href="#cb30-112" aria-hidden="true" tabindex="-1"></a><span class="co">#|   superscript text.</span></span>
-<span id="cb30-113"><a href="#cb30-113" aria-hidden="true" tabindex="-1"></a>g <span class="sc">+</span> <span class="fu">labs</span>(<span class="at">x =</span> <span class="fu">expression</span>(TP<span class="sc">~</span>concentration<span class="sc">~</span>mu<span class="sc">*</span>g<span class="sc">~</span>l<span class="sc">^-</span><span class="dv">1</span>))</span>
-<span id="cb30-114"><a href="#cb30-114" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb30-115"><a href="#cb30-115" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb30-116"><a href="#cb30-116" aria-hidden="true" tabindex="-1"></a>To start an <span class="in">`expression()`</span> with a superscript (or subscript), put <span class="in">`""`</span> first.</span>
-<span id="cb30-117"><a href="#cb30-117" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb30-118"><a href="#cb30-118" aria-hidden="true" tabindex="-1"></a><span class="in">```{r, eval = FALSE}</span></span>
-<span id="cb30-119"><a href="#cb30-119" aria-hidden="true" tabindex="-1"></a><span class="co">#| label: expression5</span></span>
-<span id="cb30-120"><a href="#cb30-120" aria-hidden="true" tabindex="-1"></a><span class="co">#| fig-alt: &gt;</span></span>
-<span id="cb30-121"><a href="#cb30-121" aria-hidden="true" tabindex="-1"></a><span class="co">#|   A copy of the previous plot with an expression that begins with</span></span>
-<span id="cb30-122"><a href="#cb30-122" aria-hidden="true" tabindex="-1"></a><span class="co">#|   superscript text.</span></span>
-<span id="cb30-123"><a href="#cb30-123" aria-hidden="true" tabindex="-1"></a>g <span class="sc">+</span> <span class="fu">labs</span>(<span class="at">x =</span> <span class="fu">expression</span>(<span class="st">""</span><span class="sc">^</span><span class="dv">14</span><span class="sc">*</span>C<span class="sc">~</span>years<span class="sc">~</span>BP))</span>
-<span id="cb30-124"><a href="#cb30-124" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb30-125"><a href="#cb30-125" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb30-126"><a href="#cb30-126" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb30-127"><a href="#cb30-127" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb30-130"><a href="#cb30-130" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb30-131"><a href="#cb30-131" aria-hidden="true" tabindex="-1"></a><span class="co">#| label: tbl-common-notation</span></span>
-<span id="cb30-132"><a href="#cb30-132" aria-hidden="true" tabindex="-1"></a><span class="co">#| tbl-caption: Some common notation</span></span>
-<span id="cb30-133"><a href="#cb30-133" aria-hidden="true" tabindex="-1"></a><span class="co">#| echo: false</span></span>
-<span id="cb30-134"><a href="#cb30-134" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb30-135"><a href="#cb30-135" aria-hidden="true" tabindex="-1"></a><span class="fu">tribble</span>(</span>
-<span id="cb30-136"><a href="#cb30-136" aria-hidden="true" tabindex="-1"></a><span class="sc">~</span>What, <span class="sc">~</span>How, <span class="sc">~</span>Output,         </span>
-<span id="cb30-137"><a href="#cb30-137" aria-hidden="true" tabindex="-1"></a><span class="st">"Lower-case Greek letters"</span>, <span class="st">"delta"</span>, <span class="st">"$$</span><span class="sc">\\</span><span class="st">delta$$"</span>,</span>
-<span id="cb30-138"><a href="#cb30-138" aria-hidden="true" tabindex="-1"></a><span class="st">"Upper-Case Greek Letters"</span>, <span class="st">"Delta"</span>, <span class="st">"$$</span><span class="sc">\\</span><span class="st">Delta$$"</span>,</span>
-<span id="cb30-139"><a href="#cb30-139" aria-hidden="true" tabindex="-1"></a><span class="st">"Subscript"</span>, <span class="st">"CO[2]"</span>, <span class="st">"$$CO_{2}$$"</span>,</span>
-<span id="cb30-140"><a href="#cb30-140" aria-hidden="true" tabindex="-1"></a><span class="st">"Superscript"</span>, <span class="st">"m^-2"</span>, <span class="st">"$$m^{-2}$$"</span>,</span>
-<span id="cb30-141"><a href="#cb30-141" aria-hidden="true" tabindex="-1"></a><span class="st">"Italics"</span>, <span class="st">"italic(Navicula)"</span>, <span class="st">"$$Navicula$$"</span></span>
-<span id="cb30-142"><a href="#cb30-142" aria-hidden="true" tabindex="-1"></a>) <span class="sc">|&gt;</span> </span>
-<span id="cb30-143"><a href="#cb30-143" aria-hidden="true" tabindex="-1"></a>  <span class="fu">gt</span>()</span>
-<span id="cb30-144"><a href="#cb30-144" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb30-145"><a href="#cb30-145" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb30-146"><a href="#cb30-146" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb30-147"><a href="#cb30-147" aria-hidden="true" tabindex="-1"></a>If you already have the expression as a string, you can use <span class="in">`str2expression()`</span> (or <span class="in">`parse()`</span> with the <span class="in">`text`</span> argument) to convert it into an expression.</span>
-<span id="cb30-148"><a href="#cb30-148" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb30-151"><a href="#cb30-151" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb30-152"><a href="#cb30-152" aria-hidden="true" tabindex="-1"></a><span class="co">#| label: str2expression</span></span>
-<span id="cb30-153"><a href="#cb30-153" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb30-154"><a href="#cb30-154" aria-hidden="true" tabindex="-1"></a>lab <span class="ot">&lt;-</span> <span class="st">"Wind~speed~m~s^-1"</span></span>
-<span id="cb30-155"><a href="#cb30-155" aria-hidden="true" tabindex="-1"></a><span class="fu">str2expression</span>(lab)</span>
-<span id="cb30-156"><a href="#cb30-156" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb30-157"><a href="#cb30-157" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb30-158"><a href="#cb30-158" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb30-159"><a href="#cb30-159" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb30-160"><a href="#cb30-160" aria-hidden="true" tabindex="-1"></a>::: callout-note</span>
-<span id="cb30-161"><a href="#cb30-161" aria-hidden="true" tabindex="-1"></a><span class="fu">## Exercise</span></span>
-<span id="cb30-162"><a href="#cb30-162" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb30-163"><a href="#cb30-163" aria-hidden="true" tabindex="-1"></a>1) Make the x-axis label read $Area~m^2$. </span>
-<span id="cb30-164"><a href="#cb30-164" aria-hidden="true" tabindex="-1"></a>The data are already loaded.</span>
-<span id="cb30-165"><a href="#cb30-165" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb30-166"><a href="#cb30-166" aria-hidden="true" tabindex="-1"></a>::: {.panel-tabset}</span>
-<span id="cb30-167"><a href="#cb30-167" aria-hidden="true" tabindex="-1"></a><span class="fu">## Code</span></span>
-<span id="cb30-168"><a href="#cb30-168" aria-hidden="true" tabindex="-1"></a><span class="in">```{webr-r}</span></span>
-<span id="cb30-169"><a href="#cb30-169" aria-hidden="true" tabindex="-1"></a><span class="in">ggplot(dat, aes(x = x, y = y)) +</span></span>
-<span id="cb30-170"><a href="#cb30-170" aria-hidden="true" tabindex="-1"></a><span class="in">  geom_point() + </span></span>
-<span id="cb30-171"><a href="#cb30-171" aria-hidden="true" tabindex="-1"></a><span class="in">  labs(x = ___)</span></span>
-<span id="cb30-172"><a href="#cb30-172" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb30-173"><a href="#cb30-173" aria-hidden="true" tabindex="-1"></a><span class="fu">## Hint</span></span>
-<span id="cb30-174"><a href="#cb30-174" aria-hidden="true" tabindex="-1"></a><span class="in">```{r expression1-solution}</span></span>
-<span id="cb30-175"><a href="#cb30-175" aria-hidden="true" tabindex="-1"></a><span class="co">#| eval = FALSE</span></span>
-<span id="cb30-176"><a href="#cb30-176" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb30-177"><a href="#cb30-177" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(dat, <span class="fu">aes</span>(<span class="at">x =</span> x, <span class="at">y =</span> y)) <span class="sc">+</span></span>
-<span id="cb30-178"><a href="#cb30-178" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
-<span id="cb30-179"><a href="#cb30-179" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="fu">expression</span>(Area<span class="sc">~</span>m<span class="sc">^</span><span class="dv">2</span>))</span>
-<span id="cb30-180"><a href="#cb30-180" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb30-181"><a href="#cb30-181" aria-hidden="true" tabindex="-1"></a>:::</span>
-<span id="cb30-182"><a href="#cb30-182" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb30-183"><a href="#cb30-183" aria-hidden="true" tabindex="-1"></a>2) Make the x-axis label read $Flux~g~m^{-2}~yr^{-1}$.</span>
-<span id="cb30-184"><a href="#cb30-184" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb30-185"><a href="#cb30-185" aria-hidden="true" tabindex="-1"></a>::: {.panel-tabset}</span>
-<span id="cb30-186"><a href="#cb30-186" aria-hidden="true" tabindex="-1"></a><span class="fu">## Code</span></span>
-<span id="cb30-187"><a href="#cb30-187" aria-hidden="true" tabindex="-1"></a><span class="in">```{webr-r}</span></span>
-<span id="cb30-188"><a href="#cb30-188" aria-hidden="true" tabindex="-1"></a><span class="in">ggplot(dat, aes(x = x, y = y)) +</span></span>
-<span id="cb30-189"><a href="#cb30-189" aria-hidden="true" tabindex="-1"></a><span class="in">  geom_point() + </span></span>
-<span id="cb30-190"><a href="#cb30-190" aria-hidden="true" tabindex="-1"></a><span class="in">  labs(x = ___)</span></span>
-<span id="cb30-191"><a href="#cb30-191" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb30-192"><a href="#cb30-192" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb30-193"><a href="#cb30-193" aria-hidden="true" tabindex="-1"></a><span class="fu">## Hint</span></span>
-<span id="cb30-194"><a href="#cb30-194" aria-hidden="true" tabindex="-1"></a><span class="in">```{r expression2-solution}</span></span>
-<span id="cb30-195"><a href="#cb30-195" aria-hidden="true" tabindex="-1"></a><span class="co">#| eval = FALSE</span></span>
-<span id="cb30-196"><a href="#cb30-196" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb30-197"><a href="#cb30-197" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(dat, <span class="fu">aes</span>(<span class="at">x =</span> x, <span class="at">y =</span> y)) <span class="sc">+</span></span>
-<span id="cb30-198"><a href="#cb30-198" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
-<span id="cb30-199"><a href="#cb30-199" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="fu">expression</span>(Flux<span class="sc">~</span>g<span class="sc">~</span>m<span class="sc">^-</span><span class="dv">2</span><span class="sc">~</span>yr<span class="sc">^-</span><span class="dv">1</span>))</span>
-<span id="cb30-200"><a href="#cb30-200" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb30-201"><a href="#cb30-201" aria-hidden="true" tabindex="-1"></a>:::</span>
-<span id="cb30-202"><a href="#cb30-202" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb30-203"><a href="#cb30-203" aria-hidden="true" tabindex="-1"></a>3) Make the x-axis label read $\delta^{15}N$.</span>
-<span id="cb30-204"><a href="#cb30-204" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb30-205"><a href="#cb30-205" aria-hidden="true" tabindex="-1"></a>::: {.panel-tabset}</span>
-<span id="cb30-206"><a href="#cb30-206" aria-hidden="true" tabindex="-1"></a><span class="fu">## Code</span></span>
-<span id="cb30-207"><a href="#cb30-207" aria-hidden="true" tabindex="-1"></a><span class="in">```{webr-r}</span></span>
-<span id="cb30-208"><a href="#cb30-208" aria-hidden="true" tabindex="-1"></a><span class="in">ggplot(dat, aes(x = x, y = y)) +</span></span>
-<span id="cb30-209"><a href="#cb30-209" aria-hidden="true" tabindex="-1"></a><span class="in">  geom_point() +</span></span>
-<span id="cb30-210"><a href="#cb30-210" aria-hidden="true" tabindex="-1"></a><span class="in">  labs(x = ___)</span></span>
-<span id="cb30-211"><a href="#cb30-211" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb30-212"><a href="#cb30-212" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb30-213"><a href="#cb30-213" aria-hidden="true" tabindex="-1"></a><span class="fu">## Hint</span></span>
-<span id="cb30-214"><a href="#cb30-214" aria-hidden="true" tabindex="-1"></a><span class="in">```{r expression3-solution}</span></span>
-<span id="cb30-215"><a href="#cb30-215" aria-hidden="true" tabindex="-1"></a><span class="co">#| eval = FALSE</span></span>
-<span id="cb30-216"><a href="#cb30-216" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb30-217"><a href="#cb30-217" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(dat, <span class="fu">aes</span>(<span class="at">x =</span> x, <span class="at">y =</span> y)) <span class="sc">+</span></span>
-<span id="cb30-218"><a href="#cb30-218" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
-<span id="cb30-219"><a href="#cb30-219" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="fu">expression</span>(delta<span class="sc">^</span><span class="dv">15</span><span class="sc">*</span>N))</span>
-<span id="cb30-220"><a href="#cb30-220" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb30-221"><a href="#cb30-221" aria-hidden="true" tabindex="-1"></a>:::</span>
-<span id="cb30-222"><a href="#cb30-222" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb30-223"><a href="#cb30-223" aria-hidden="true" tabindex="-1"></a>4) Make the x-axis label read _Aulacoseira granulata_ var. _angustissima_.</span>
-<span id="cb30-224"><a href="#cb30-224" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb30-225"><a href="#cb30-225" aria-hidden="true" tabindex="-1"></a>::: {.panel-tabset}</span>
-<span id="cb30-226"><a href="#cb30-226" aria-hidden="true" tabindex="-1"></a><span class="fu">## Code</span></span>
-<span id="cb30-227"><a href="#cb30-227" aria-hidden="true" tabindex="-1"></a><span class="in">```{webr-r}</span></span>
-<span id="cb30-228"><a href="#cb30-228" aria-hidden="true" tabindex="-1"></a><span class="in">ggplot(dat, aes(x = x, y = y)) +</span></span>
-<span id="cb30-229"><a href="#cb30-229" aria-hidden="true" tabindex="-1"></a><span class="in">  geom_point() + </span></span>
-<span id="cb30-230"><a href="#cb30-230" aria-hidden="true" tabindex="-1"></a><span class="in">  labs(x = ___)</span></span>
-<span id="cb30-231"><a href="#cb30-231" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb30-232"><a href="#cb30-232" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb30-233"><a href="#cb30-233" aria-hidden="true" tabindex="-1"></a><span class="fu">## Hint</span></span>
-<span id="cb30-234"><a href="#cb30-234" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb30-235"><a href="#cb30-235" aria-hidden="true" tabindex="-1"></a><span class="in">```{r expression4-solution}</span></span>
-<span id="cb30-236"><a href="#cb30-236" aria-hidden="true" tabindex="-1"></a><span class="co">#| eval = FALSE</span></span>
-<span id="cb30-237"><a href="#cb30-237" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb30-238"><a href="#cb30-238" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(dat, <span class="fu">aes</span>(<span class="at">x =</span> x, <span class="at">y =</span> y)) <span class="sc">+</span></span>
-<span id="cb30-239"><a href="#cb30-239" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
-<span id="cb30-240"><a href="#cb30-240" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="fu">expression</span>(<span class="fu">italic</span>(Aulacoseira<span class="sc">~</span>granulata)<span class="sc">~</span>var.<span class="sc">~</span><span class="fu">italic</span>(angustissima)))</span>
-<span id="cb30-241"><a href="#cb30-241" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb30-242"><a href="#cb30-242" aria-hidden="true" tabindex="-1"></a>:::</span>
-<span id="cb30-243"><a href="#cb30-243" aria-hidden="true" tabindex="-1"></a>:::</span>
-<span id="cb30-244"><a href="#cb30-244" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb30-245"><a href="#cb30-245" aria-hidden="true" tabindex="-1"></a><span class="fu">## Parsing</span></span>
-<span id="cb30-246"><a href="#cb30-246" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb30-247"><a href="#cb30-247" aria-hidden="true" tabindex="-1"></a>Some functions such as <span class="in">`geom_text()`</span>, <span class="in">`facet_wrap()`</span> and <span class="in">`scale_x_discrete()`</span> do not accept expressions directly. </span>
-<span id="cb30-248"><a href="#cb30-248" aria-hidden="true" tabindex="-1"></a>Instead, they parse a string and convert it to an expression. </span>
-<span id="cb30-249"><a href="#cb30-249" aria-hidden="true" tabindex="-1"></a>Each function does this a different way!</span>
-<span id="cb30-250"><a href="#cb30-250" aria-hidden="true" tabindex="-1"></a>Usually it helps to use <span class="in">`mutate()`</span> to add columns with the parsable labels if necessary.</span>
-<span id="cb30-251"><a href="#cb30-251" aria-hidden="true" tabindex="-1"></a>Here is a minimal example that adds subscripts and superscripts to text, axis labels and facet strips. </span>
-<span id="cb30-252"><a href="#cb30-252" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb30-255"><a href="#cb30-255" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb30-256"><a href="#cb30-256" aria-hidden="true" tabindex="-1"></a><span class="co">#| label: parsed</span></span>
-<span id="cb30-257"><a href="#cb30-257" aria-hidden="true" tabindex="-1"></a><span class="co">#| fig-cap: Composition of Lake Aranguadi, Ethiopia (Wood and Talling 1988)</span></span>
-<span id="cb30-258"><a href="#cb30-258" aria-hidden="true" tabindex="-1"></a><span class="co">#| fig-alt: &gt;</span></span>
-<span id="cb30-259"><a href="#cb30-259" aria-hidden="true" tabindex="-1"></a><span class="co">#|   Barchart showing the chemical composition of Lake Aranguadi.</span></span>
-<span id="cb30-260"><a href="#cb30-260" aria-hidden="true" tabindex="-1"></a><span class="co">#|   Chemical formulae are given on the x-axis and above each bar.</span></span>
-<span id="cb30-261"><a href="#cb30-261" aria-hidden="true" tabindex="-1"></a><span class="co">#| fig-height: 5</span></span>
-<span id="cb30-262"><a href="#cb30-262" aria-hidden="true" tabindex="-1"></a><span class="co">#| fig-width: 7</span></span>
-<span id="cb30-263"><a href="#cb30-263" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb30-264"><a href="#cb30-264" aria-hidden="true" tabindex="-1"></a><span class="co"># collate data</span></span>
-<span id="cb30-265"><a href="#cb30-265" aria-hidden="true" tabindex="-1"></a>dat <span class="ot">&lt;-</span> <span class="fu">tibble</span>(</span>
-<span id="cb30-266"><a href="#cb30-266" aria-hidden="true" tabindex="-1"></a>  <span class="at">species =</span> <span class="fu">c</span>(<span class="st">"Na+"</span>, <span class="st">"K+"</span>, <span class="st">"Ca2+"</span>, <span class="st">"Mg2+"</span>, <span class="st">"Cl-"</span>, <span class="st">"SO42-"</span>, <span class="st">"HCO3-"</span>, <span class="st">"CO32-"</span>),</span>
-<span id="cb30-267"><a href="#cb30-267" aria-hidden="true" tabindex="-1"></a>  <span class="at">conc =</span> <span class="fu">c</span>(<span class="dv">368</span>, <span class="dv">59</span>, <span class="dv">7</span>, <span class="dv">70</span>, <span class="dv">142</span>, <span class="dv">17</span>, <span class="dv">1231</span>, <span class="dv">85</span>),</span>
-<span id="cb30-268"><a href="#cb30-268" aria-hidden="true" tabindex="-1"></a>  <span class="at">mol_mass =</span> <span class="fu">c</span>(</span>
-<span id="cb30-269"><a href="#cb30-269" aria-hidden="true" tabindex="-1"></a>    <span class="fl">22.99</span>, <span class="fl">39.10</span>, <span class="fl">40.08</span>, <span class="fl">24.31</span>, <span class="fl">35.45</span>, <span class="fl">96.06</span>, <span class="fl">61.02</span>, <span class="fl">60.01</span></span>
-<span id="cb30-270"><a href="#cb30-270" aria-hidden="true" tabindex="-1"></a>  ),</span>
-<span id="cb30-271"><a href="#cb30-271" aria-hidden="true" tabindex="-1"></a>  <span class="at">moles =</span> conc<span class="sc">/</span>mol_mass</span>
-<span id="cb30-272"><a href="#cb30-272" aria-hidden="true" tabindex="-1"></a>) <span class="sc">|&gt;</span> </span>
-<span id="cb30-273"><a href="#cb30-273" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(<span class="sc">-</span>mol_mass) <span class="sc">|&gt;</span></span>
-<span id="cb30-274"><a href="#cb30-274" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pivot_longer</span>(<span class="at">cols =</span> <span class="fu">c</span>(conc, moles), <span class="at">names_to =</span> <span class="st">"unit"</span>, <span class="at">values_to =</span> <span class="st">"value"</span>)</span>
-<span id="cb30-275"><a href="#cb30-275" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb30-276"><a href="#cb30-276" aria-hidden="true" tabindex="-1"></a><span class="co"># add a column that can be parsed as formatted labels</span></span>
-<span id="cb30-277"><a href="#cb30-277" aria-hidden="true" tabindex="-1"></a>dat <span class="ot">&lt;-</span> dat <span class="sc">|&gt;</span> </span>
-<span id="cb30-278"><a href="#cb30-278" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">labels =</span> <span class="fu">case_match</span>(species,</span>
-<span id="cb30-279"><a href="#cb30-279" aria-hidden="true" tabindex="-1"></a>    <span class="st">"Na+"</span> <span class="sc">~</span> <span class="st">"Na^'+'"</span>,</span>
-<span id="cb30-280"><a href="#cb30-280" aria-hidden="true" tabindex="-1"></a>    <span class="st">"K+"</span> <span class="sc">~</span> <span class="st">"K^'+'"</span>,</span>
-<span id="cb30-281"><a href="#cb30-281" aria-hidden="true" tabindex="-1"></a>    <span class="st">"Ca2+"</span> <span class="sc">~</span> <span class="st">"Ca^{2*'+'}"</span>,</span>
-<span id="cb30-282"><a href="#cb30-282" aria-hidden="true" tabindex="-1"></a>    <span class="st">"Mg2+"</span> <span class="sc">~</span> <span class="st">"Mg^{2*'+'}"</span>,</span>
-<span id="cb30-283"><a href="#cb30-283" aria-hidden="true" tabindex="-1"></a>    <span class="st">"Cl-"</span> <span class="sc">~</span> <span class="st">"Cl^'-'"</span>,</span>
-<span id="cb30-284"><a href="#cb30-284" aria-hidden="true" tabindex="-1"></a>    <span class="st">"SO42-"</span> <span class="sc">~</span> <span class="st">"SO[4]^{2*'-'}"</span>,</span>
-<span id="cb30-285"><a href="#cb30-285" aria-hidden="true" tabindex="-1"></a>    <span class="st">"HCO3-"</span> <span class="sc">~</span> <span class="st">"HCO[3]^'-'"</span>,</span>
-<span id="cb30-286"><a href="#cb30-286" aria-hidden="true" tabindex="-1"></a>    <span class="st">"CO32-"</span> <span class="sc">~</span> <span class="st">"CO[3]^{2*'-'}"</span></span>
-<span id="cb30-287"><a href="#cb30-287" aria-hidden="true" tabindex="-1"></a>  )) <span class="sc">|&gt;</span> </span>
-<span id="cb30-288"><a href="#cb30-288" aria-hidden="true" tabindex="-1"></a>  <span class="co"># convert into factor to ensure plotting order</span></span>
-<span id="cb30-289"><a href="#cb30-289" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">labels =</span> <span class="fu">factor</span>(labels)) <span class="sc">|&gt;</span> </span>
-<span id="cb30-290"><a href="#cb30-290" aria-hidden="true" tabindex="-1"></a>  <span class="co"># make units column parsable as expression</span></span>
-<span id="cb30-291"><a href="#cb30-291" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">unit =</span> <span class="fu">case_match</span>(unit,</span>
-<span id="cb30-292"><a href="#cb30-292" aria-hidden="true" tabindex="-1"></a>    <span class="st">"conc"</span> <span class="sc">~</span> <span class="st">"mg %.% l^{-1}"</span>,</span>
-<span id="cb30-293"><a href="#cb30-293" aria-hidden="true" tabindex="-1"></a>    <span class="st">"moles"</span> <span class="sc">~</span> <span class="st">"mmol %.% l^{-1}"</span></span>
-<span id="cb30-294"><a href="#cb30-294" aria-hidden="true" tabindex="-1"></a>  )) </span>
-<span id="cb30-295"><a href="#cb30-295" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb30-296"><a href="#cb30-296" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb30-297"><a href="#cb30-297" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb30-298"><a href="#cb30-298" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(dat, <span class="fu">aes</span>(<span class="at">x =</span> labels, <span class="at">y =</span> value)) <span class="sc">+</span></span>
-<span id="cb30-299"><a href="#cb30-299" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_col</span>() <span class="sc">+</span></span>
-<span id="cb30-300"><a href="#cb30-300" aria-hidden="true" tabindex="-1"></a>  <span class="co"># use parse argument in geom_text()</span></span>
-<span id="cb30-301"><a href="#cb30-301" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_text</span>(<span class="fu">aes</span>(<span class="at">label =</span> labels), </span>
-<span id="cb30-302"><a href="#cb30-302" aria-hidden="true" tabindex="-1"></a>            <span class="at">parse =</span> <span class="cn">TRUE</span>, </span>
-<span id="cb30-303"><a href="#cb30-303" aria-hidden="true" tabindex="-1"></a>            <span class="at">vjust =</span> <span class="sc">-</span><span class="fl">0.1</span> <span class="co"># move text up slightly</span></span>
-<span id="cb30-304"><a href="#cb30-304" aria-hidden="true" tabindex="-1"></a>            ) <span class="sc">+</span>  </span>
-<span id="cb30-305"><a href="#cb30-305" aria-hidden="true" tabindex="-1"></a>  <span class="co"># use parse function to make expressions for scale_x_discrete()</span></span>
-<span id="cb30-306"><a href="#cb30-306" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_x_discrete</span>(<span class="at">labels =</span> <span class="fu">parse</span>(<span class="at">text =</span> <span class="fu">levels</span>(dat<span class="sc">$</span>labels))) <span class="sc">+</span></span>
-<span id="cb30-307"><a href="#cb30-307" aria-hidden="true" tabindex="-1"></a>  <span class="co"># use labeller argument in facet_wrap to parse strip labels</span></span>
-<span id="cb30-308"><a href="#cb30-308" aria-hidden="true" tabindex="-1"></a>  <span class="fu">facet_wrap</span>(<span class="fu">vars</span>(unit), <span class="at">labeller =</span> <span class="st">"label_parsed"</span>, <span class="at">scale =</span> <span class="st">"free_y"</span>) <span class="sc">+</span></span>
-<span id="cb30-309"><a href="#cb30-309" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"Ion"</span>, <span class="at">y =</span> <span class="st">"Concentration"</span>) </span>
-<span id="cb30-310"><a href="#cb30-310" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb30-311"><a href="#cb30-311" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb30-312"><a href="#cb30-312" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb30-313"><a href="#cb30-313" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb30-314"><a href="#cb30-314" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb30-315"><a href="#cb30-315" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb30-316"><a href="#cb30-316" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb30-317"><a href="#cb30-317" aria-hidden="true" tabindex="-1"></a><span class="fu">## Troubleshooting</span></span>
-<span id="cb30-318"><a href="#cb30-318" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb30-319"><a href="#cb30-319" aria-hidden="true" tabindex="-1"></a>Expressions, are quite tricky to get right. </span>
-<span id="cb30-320"><a href="#cb30-320" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb30-321"><a href="#cb30-321" aria-hidden="true" tabindex="-1"></a>Here are some examples of errors and how to interpret them.</span>
-<span id="cb30-322"><a href="#cb30-322" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb30-325"><a href="#cb30-325" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb30-326"><a href="#cb30-326" aria-hidden="true" tabindex="-1"></a><span class="co">#| error: true</span></span>
-<span id="cb30-327"><a href="#cb30-327" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb30-328"><a href="#cb30-328" aria-hidden="true" tabindex="-1"></a><span class="fu">expression</span>(Wind speed m<span class="sc">%.%</span>s<span class="sc">^-</span><span class="dv">1</span>)</span>
-<span id="cb30-329"><a href="#cb30-329" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb30-330"><a href="#cb30-330" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb30-331"><a href="#cb30-331" aria-hidden="true" tabindex="-1"></a>You cannot have spaces in expressions unless you quote them.</span>
-<span id="cb30-332"><a href="#cb30-332" aria-hidden="true" tabindex="-1"></a>You can use a <span class="in">`~`</span> instead of a space.</span>
-<span id="cb30-333"><a href="#cb30-333" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb30-336"><a href="#cb30-336" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb30-337"><a href="#cb30-337" aria-hidden="true" tabindex="-1"></a><span class="co">#| error: true</span></span>
-<span id="cb30-338"><a href="#cb30-338" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb30-339"><a href="#cb30-339" aria-hidden="true" tabindex="-1"></a><span class="fu">expression</span>(Wind<span class="sc">~</span>speed<span class="sc">~</span>m<span class="sc">%.%</span>s<span class="sc">^-</span><span class="dv">1</span>)</span>
-<span id="cb30-340"><a href="#cb30-340" aria-hidden="true" tabindex="-1"></a><span class="co"># or</span></span>
-<span id="cb30-341"><a href="#cb30-341" aria-hidden="true" tabindex="-1"></a><span class="fu">expression</span>(<span class="st">"Wind speed m"</span><span class="sc">%.%</span>s<span class="sc">^-</span><span class="dv">1</span>)</span>
-<span id="cb30-342"><a href="#cb30-342" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb30-343"><a href="#cb30-343" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb30-344"><a href="#cb30-344" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb30-347"><a href="#cb30-347" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb30-348"><a href="#cb30-348" aria-hidden="true" tabindex="-1"></a><span class="co">#| error: true</span></span>
-<span id="cb30-349"><a href="#cb30-349" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb30-350"><a href="#cb30-350" aria-hidden="true" tabindex="-1"></a><span class="fu">expression</span>(Ca<span class="sc">^</span><span class="dv">2</span><span class="sc">+</span>)</span>
-<span id="cb30-351"><a href="#cb30-351" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb30-352"><a href="#cb30-352" aria-hidden="true" tabindex="-1"></a>The <span class="in">`+`</span> is a mathematical symbol that expects another symbol after it. </span>
-<span id="cb30-353"><a href="#cb30-353" aria-hidden="true" tabindex="-1"></a>To make it work here, quote the <span class="in">`+`</span> or the <span class="in">`2+`</span>.</span>
-<span id="cb30-354"><a href="#cb30-354" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb30-357"><a href="#cb30-357" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb30-358"><a href="#cb30-358" aria-hidden="true" tabindex="-1"></a><span class="co">#| error: true</span></span>
-<span id="cb30-359"><a href="#cb30-359" aria-hidden="true" tabindex="-1"></a><span class="fu">expression</span>(Ca<span class="sc">^</span><span class="dv">2</span><span class="sc">*</span><span class="st">'+'</span>)</span>
-<span id="cb30-360"><a href="#cb30-360" aria-hidden="true" tabindex="-1"></a><span class="co"># or</span></span>
-<span id="cb30-361"><a href="#cb30-361" aria-hidden="true" tabindex="-1"></a><span class="fu">expression</span>(Ca<span class="sc">^</span><span class="st">"2+"</span>)</span>
-<span id="cb30-362"><a href="#cb30-362" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb30-363"><a href="#cb30-363" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb30-364"><a href="#cb30-364" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb30-365"><a href="#cb30-365" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb30-368"><a href="#cb30-368" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb30-369"><a href="#cb30-369" aria-hidden="true" tabindex="-1"></a><span class="co">#| error: true</span></span>
-<span id="cb30-370"><a href="#cb30-370" aria-hidden="true" tabindex="-1"></a><span class="fu">expression</span>(<span class="fu">italic</span>(Betula<span class="sc">~</span>nana)<span class="sc">~</span>%)</span>
-<span id="cb30-371"><a href="#cb30-371" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb30-372"><a href="#cb30-372" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb30-373"><a href="#cb30-373" aria-hidden="true" tabindex="-1"></a>The <span class="in">`%`</span> is a special character, so it need to be quoted. </span>
-<span id="cb30-374"><a href="#cb30-374" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb30-377"><a href="#cb30-377" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb30-378"><a href="#cb30-378" aria-hidden="true" tabindex="-1"></a><span class="fu">expression</span>(<span class="fu">italic</span>(Betula<span class="sc">~</span>nana)<span class="sc">~</span><span class="st">'%'</span>)</span>
-<span id="cb30-379"><a href="#cb30-379" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb30-380"><a href="#cb30-380" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb30-381"><a href="#cb30-381" aria-hidden="true" tabindex="-1"></a>::: callout-note</span>
-<span id="cb30-382"><a href="#cb30-382" aria-hidden="true" tabindex="-1"></a><span class="fu">## Exercise</span></span>
-<span id="cb30-383"><a href="#cb30-383" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb30-384"><a href="#cb30-384" aria-hidden="true" tabindex="-1"></a>Fix the following broken expressions</span>
-<span id="cb30-385"><a href="#cb30-385" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb30-386"><a href="#cb30-386" aria-hidden="true" tabindex="-1"></a>::: {.panel-tabset}</span>
-<span id="cb30-387"><a href="#cb30-387" aria-hidden="true" tabindex="-1"></a><span class="fu">## Code</span></span>
-<span id="cb30-388"><a href="#cb30-388" aria-hidden="true" tabindex="-1"></a><span class="in">```{webr-r}</span></span>
-<span id="cb30-389"><a href="#cb30-389" aria-hidden="true" tabindex="-1"></a><span class="in">expression(Wet mass g m^-2)</span></span>
-<span id="cb30-390"><a href="#cb30-390" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb30-391"><a href="#cb30-391" aria-hidden="true" tabindex="-1"></a><span class="fu">## Hint</span></span>
-<span id="cb30-392"><a href="#cb30-392" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb30-393"><a href="#cb30-393" aria-hidden="true" tabindex="-1"></a>No spaces allowed in expressions. Quote or replace spaces with <span class="in">`~`</span>.  </span>
-<span id="cb30-394"><a href="#cb30-394" aria-hidden="true" tabindex="-1"></a>:::</span>
-<span id="cb30-395"><a href="#cb30-395" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb30-396"><a href="#cb30-396" aria-hidden="true" tabindex="-1"></a>::: {.panel-tabset}</span>
-<span id="cb30-397"><a href="#cb30-397" aria-hidden="true" tabindex="-1"></a><span class="fu">## Code</span></span>
-<span id="cb30-398"><a href="#cb30-398" aria-hidden="true" tabindex="-1"></a><span class="in">```{webr-r}</span></span>
-<span id="cb30-399"><a href="#cb30-399" aria-hidden="true" tabindex="-1"></a><span class="in">ggplot() + </span></span>
-<span id="cb30-400"><a href="#cb30-400" aria-hidden="true" tabindex="-1"></a><span class="in">  labs(x = expression(italics(Dyras~octopetala)~"%"))</span></span>
-<span id="cb30-401"><a href="#cb30-401" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb30-402"><a href="#cb30-402" aria-hidden="true" tabindex="-1"></a><span class="fu">## Hint</span></span>
-<span id="cb30-403"><a href="#cb30-403" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb30-404"><a href="#cb30-404" aria-hidden="true" tabindex="-1"></a>Be careful with spelling! italic not italics.</span>
-<span id="cb30-405"><a href="#cb30-405" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb30-406"><a href="#cb30-406" aria-hidden="true" tabindex="-1"></a>:::</span>
-<span id="cb30-407"><a href="#cb30-407" aria-hidden="true" tabindex="-1"></a>:::</span>
-<span id="cb30-408"><a href="#cb30-408" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb30-409"><a href="#cb30-409" aria-hidden="true" tabindex="-1"></a><span class="fu">## Other tips</span></span>
-<span id="cb30-410"><a href="#cb30-410" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb30-411"><a href="#cb30-411" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="in">`bquote()`</span> (or <span class="in">`label_bquote()`</span> for facet labels) can be useful if you want to include an R object in the expression. </span>
-<span id="cb30-412"><a href="#cb30-412" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="in">`demo(plotmath)`</span> and <span class="in">`?plotmath`</span> are very useful once you have understood the basics.</span>
-<span id="cb30-413"><a href="#cb30-413" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Some symbols are not defined by <span class="in">`plotmath`</span> but can be included using <span class="co">[</span><span class="ot">unicode</span><span class="co">](http://www.unicode.org/charts/)</span>. </span>
-<span id="cb30-414"><a href="#cb30-414" aria-hidden="true" tabindex="-1"></a>For example a per mil symbol (‰) - <span class="in">`\u2030`</span> </span>
-<span id="cb30-417"><a href="#cb30-417" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb30-418"><a href="#cb30-418" aria-hidden="true" tabindex="-1"></a><span class="co">#| eval: false</span></span>
-<span id="cb30-419"><a href="#cb30-419" aria-hidden="true" tabindex="-1"></a><span class="fu">expression</span>(delta<span class="sc">^</span><span class="dv">15</span><span class="sc">*</span>N<span class="sc">~</span>(<span class="st">'\u2030'</span>))</span>
-<span id="cb30-420"><a href="#cb30-420" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb30-421"><a href="#cb30-421" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb30-422"><a href="#cb30-422" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>non-alphanumeric symbols (e.g. %) may need quoting</span>
-<span id="cb30-423"><a href="#cb30-423" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="co">[</span><span class="ot">LaTeX equations</span><span class="co">](https://biostats-r.github.io/biostats/rmarkdown/figures-tables-and-equations.html#equations)</span> can be converted to expressions with <span class="in">`latex2exp::TeX`</span>.</span>
-<span id="cb30-424"><a href="#cb30-424" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb30-425"><a href="#cb30-425" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb30-426"><a href="#cb30-426" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb30-427"><a href="#cb30-427" aria-hidden="true" tabindex="-1"></a>If you understand these examples, you should be able to use the remainder of the functionality demonstrated by <span class="in">`demo(plotmath)`</span> and at <span class="in">`?plotmath`</span>.</span>
-<span id="cb30-428"><a href="#cb30-428" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb30-429"><a href="#cb30-429" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb30-430"><a href="#cb30-430" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb30-431"><a href="#cb30-431" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb30-432"><a href="#cb30-432" aria-hidden="true" tabindex="-1"></a>::: {.column-margin}</span>
-<span id="cb30-433"><a href="#cb30-433" aria-hidden="true" tabindex="-1"></a><span class="fu">### Contributors {.unlisted .unnumbered}</span></span>
-<span id="cb30-434"><a href="#cb30-434" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb30-435"><a href="#cb30-435" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>Richard Telford</span>
-<span id="cb30-436"><a href="#cb30-436" aria-hidden="true" tabindex="-1"></a>:::</span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb32" data-shortcodes="false"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
+<span id="cb32-2"><a href="#cb32-2" aria-hidden="true" tabindex="-1"></a><span class="an">fig-height:</span><span class="co"> 2</span></span>
+<span id="cb32-3"><a href="#cb32-3" aria-hidden="true" tabindex="-1"></a><span class="an">filters:</span></span>
+<span id="cb32-4"><a href="#cb32-4" aria-hidden="true" tabindex="-1"></a><span class="co">  - webr</span></span>
+<span id="cb32-5"><a href="#cb32-5" aria-hidden="true" tabindex="-1"></a><span class="an">webr:</span><span class="co">  </span></span>
+<span id="cb32-6"><a href="#cb32-6" aria-hidden="true" tabindex="-1"></a><span class="co">  show-startup-message: true    # Display status of webR initialization</span></span>
+<span id="cb32-7"><a href="#cb32-7" aria-hidden="true" tabindex="-1"></a><span class="co">  packages: ['ggplot2', 'tibble'] # Pre-install dependency</span></span>
+<span id="cb32-8"><a href="#cb32-8" aria-hidden="true" tabindex="-1"></a><span class="co">  cell-options:</span></span>
+<span id="cb32-9"><a href="#cb32-9" aria-hidden="true" tabindex="-1"></a><span class="co">    fig-height: 2</span></span>
+<span id="cb32-10"><a href="#cb32-10" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
+<span id="cb32-11"><a href="#cb32-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb32-12"><a href="#cb32-12" aria-hidden="true" tabindex="-1"></a><span class="fu"># Mathematical notation for plots</span></span>
+<span id="cb32-13"><a href="#cb32-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb32-14"><a href="#cb32-14" aria-hidden="true" tabindex="-1"></a><span class="in">``` {r}</span></span>
+<span id="cb32-15"><a href="#cb32-15" aria-hidden="true" tabindex="-1"></a><span class="co">#| label: setup</span></span>
+<span id="cb32-16"><a href="#cb32-16" aria-hidden="true" tabindex="-1"></a><span class="co">#| include: false</span></span>
+<span id="cb32-17"><a href="#cb32-17" aria-hidden="true" tabindex="-1"></a><span class="fu">source</span>(<span class="st">"R/setup.R"</span>)</span>
+<span id="cb32-18"><a href="#cb32-18" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(gt)</span>
+<span id="cb32-19"><a href="#cb32-19" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb32-20"><a href="#cb32-20" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb32-21"><a href="#cb32-21" aria-hidden="true" tabindex="-1"></a><span class="in">```{webr-r}</span></span>
+<span id="cb32-22"><a href="#cb32-22" aria-hidden="true" tabindex="-1"></a><span class="in">#| label: webr-setup</span></span>
+<span id="cb32-23"><a href="#cb32-23" aria-hidden="true" tabindex="-1"></a><span class="in">#| context: setup</span></span>
+<span id="cb32-24"><a href="#cb32-24" aria-hidden="true" tabindex="-1"></a><span class="in">theme_set(theme_bw())</span></span>
+<span id="cb32-25"><a href="#cb32-25" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb32-26"><a href="#cb32-26" aria-hidden="true" tabindex="-1"></a><span class="in">dat &lt;- tibble(x = 1:5, y = x^2)</span></span>
+<span id="cb32-27"><a href="#cb32-27" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb32-28"><a href="#cb32-28" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb32-29"><a href="#cb32-29" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb32-30"><a href="#cb32-30" aria-hidden="true" tabindex="-1"></a><span class="fu">## Introduction</span></span>
+<span id="cb32-31"><a href="#cb32-31" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb32-32"><a href="#cb32-32" aria-hidden="true" tabindex="-1"></a>When making a publication ready plot, we often need to use special characters and mathematical notation  for the axes and other labels.</span>
+<span id="cb32-33"><a href="#cb32-33" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb32-34"><a href="#cb32-34" aria-hidden="true" tabindex="-1"></a><span class="ss"> - </span>$TP~concentration~\mu g~l^{-1}$</span>
+<span id="cb32-35"><a href="#cb32-35" aria-hidden="true" tabindex="-1"></a><span class="ss"> - </span>$Conductivity~\mu S~cm^{-1}$</span>
+<span id="cb32-36"><a href="#cb32-36" aria-hidden="true" tabindex="-1"></a><span class="ss"> - </span>$\sqrt{Standardised~residuals}$</span>
+<span id="cb32-37"><a href="#cb32-37" aria-hidden="true" tabindex="-1"></a><span class="ss"> - </span>$\delta^{15}N$</span>
+<span id="cb32-38"><a href="#cb32-38" aria-hidden="true" tabindex="-1"></a> </span>
+<span id="cb32-39"><a href="#cb32-39" aria-hidden="true" tabindex="-1"></a>The functions <span class="in">`expression()`</span> and <span class="in">`bquote()`</span> are powerful tools for annotating figures with mathematical notation in R. </span>
+<span id="cb32-40"><a href="#cb32-40" aria-hidden="true" tabindex="-1"></a>This functionality is not immediately obvious from their respective help files. </span>
+<span id="cb32-41"><a href="#cb32-41" aria-hidden="true" tabindex="-1"></a><span class="in">`demo(plotmath)`</span> and <span class="in">`?plotmath`</span> show the huge potential of <span class="in">`expression()`</span>, but do not have many examples relevant to biologists with graphs to label.</span>
+<span id="cb32-42"><a href="#cb32-42" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb32-43"><a href="#cb32-43" aria-hidden="true" tabindex="-1"></a>Expressions are comprised of symbols. </span>
+<span id="cb32-44"><a href="#cb32-44" aria-hidden="true" tabindex="-1"></a>The expression $TP ~ concentration ~\mu g~l^{-1}$ includes the symbols $TP$, $concentration$, $\mu$, $g$, $l$, and $^{-1}$. </span>
+<span id="cb32-45"><a href="#cb32-45" aria-hidden="true" tabindex="-1"></a>In this chapter, you will learn how to generate these symbols and combine them with <span class="in">`expression()`</span>.</span>
+<span id="cb32-46"><a href="#cb32-46" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb32-47"><a href="#cb32-47" aria-hidden="true" tabindex="-1"></a>The key to getting expressions to work is to start with something simple, test it and edit until it works, then add the next symbol and repeat. </span>
+<span id="cb32-48"><a href="#cb32-48" aria-hidden="true" tabindex="-1"></a>This is the approach we are going to use here.</span>
+<span id="cb32-49"><a href="#cb32-49" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb32-50"><a href="#cb32-50" aria-hidden="true" tabindex="-1"></a><span class="fu">## `expression()`</span></span>
+<span id="cb32-51"><a href="#cb32-51" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb32-52"><a href="#cb32-52" aria-hidden="true" tabindex="-1"></a>We are going to use <span class="in">`expression()`</span> with <span class="in">`labs()`</span>, but the same expressions can be used with some other functions that write text on a plot (including base plots). </span>
+<span id="cb32-53"><a href="#cb32-53" aria-hidden="true" tabindex="-1"></a>Other functions take a slightly different approach (see section on parsing below).</span>
+<span id="cb32-54"><a href="#cb32-54" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb32-55"><a href="#cb32-55" aria-hidden="true" tabindex="-1"></a>The simplest use of expression is take a symbol that is a single word or number.</span>
+<span id="cb32-56"><a href="#cb32-56" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb32-59"><a href="#cb32-59" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb32-60"><a href="#cb32-60" aria-hidden="true" tabindex="-1"></a><span class="co">#| label: expression1</span></span>
+<span id="cb32-61"><a href="#cb32-61" aria-hidden="true" tabindex="-1"></a><span class="co">#| fig-alt: &gt;</span></span>
+<span id="cb32-62"><a href="#cb32-62" aria-hidden="true" tabindex="-1"></a><span class="co">#|   Plot of a quadratic relationship with a simple expression for the x-axis.</span></span>
+<span id="cb32-63"><a href="#cb32-63" aria-hidden="true" tabindex="-1"></a><span class="co"># sample data</span></span>
+<span id="cb32-64"><a href="#cb32-64" aria-hidden="true" tabindex="-1"></a>dat <span class="ot">&lt;-</span> <span class="fu">tibble</span>(<span class="at">x =</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">5</span>, <span class="at">y =</span> x<span class="sc">^</span><span class="dv">2</span>)</span>
+<span id="cb32-65"><a href="#cb32-65" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb32-66"><a href="#cb32-66" aria-hidden="true" tabindex="-1"></a><span class="co"># base plot</span></span>
+<span id="cb32-67"><a href="#cb32-67" aria-hidden="true" tabindex="-1"></a>g <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(dat, <span class="fu">aes</span>(<span class="at">x =</span> x, <span class="at">y =</span> y)) <span class="sc">+</span></span>
+<span id="cb32-68"><a href="#cb32-68" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>() </span>
+<span id="cb32-69"><a href="#cb32-69" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb32-70"><a href="#cb32-70" aria-hidden="true" tabindex="-1"></a>g <span class="sc">+</span>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="fu">expression</span>(TP))</span>
+<span id="cb32-71"><a href="#cb32-71" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb32-72"><a href="#cb32-72" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb32-73"><a href="#cb32-73" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb32-74"><a href="#cb32-74" aria-hidden="true" tabindex="-1"></a>Notice that <span class="in">`expression()`</span> does not require quote marks except to enclose spaces or punctuation. </span>
+<span id="cb32-75"><a href="#cb32-75" aria-hidden="true" tabindex="-1"></a>This first example of  <span class="in">`expression()`</span> is entirely pointless except as a starting point for something more complex.</span>
+<span id="cb32-76"><a href="#cb32-76" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb32-77"><a href="#cb32-77" aria-hidden="true" tabindex="-1"></a>If we want two symbols with a space between them, we need to separate them with a tilde <span class="in">`~`</span>. </span>
+<span id="cb32-78"><a href="#cb32-78" aria-hidden="true" tabindex="-1"></a>If we don't want a space, we can separate symbols with <span class="in">`*`</span> (if you actually want a <span class="in">`*`</span>, use <span class="in">`%*%`</span>).</span>
+<span id="cb32-79"><a href="#cb32-79" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb32-82"><a href="#cb32-82" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb32-83"><a href="#cb32-83" aria-hidden="true" tabindex="-1"></a><span class="co">#| label: expression2</span></span>
+<span id="cb32-84"><a href="#cb32-84" aria-hidden="true" tabindex="-1"></a><span class="co">#| fig-alt: &gt; </span></span>
+<span id="cb32-85"><a href="#cb32-85" aria-hidden="true" tabindex="-1"></a><span class="co">#|   A copy of the previous plot with an expression that includes a space.</span></span>
+<span id="cb32-86"><a href="#cb32-86" aria-hidden="true" tabindex="-1"></a>g <span class="sc">+</span> <span class="fu">labs</span>(<span class="at">x =</span> <span class="fu">expression</span>(TP<span class="sc">~</span>concentration))</span>
+<span id="cb32-87"><a href="#cb32-87" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb32-88"><a href="#cb32-88" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb32-89"><a href="#cb32-89" aria-hidden="true" tabindex="-1"></a>Some symbols have special meanings, for example, to get a Greek letter, write its name in lower case. </span>
+<span id="cb32-90"><a href="#cb32-90" aria-hidden="true" tabindex="-1"></a>Capitalise the first letter to get an upper-case Greek letter. </span>
+<span id="cb32-91"><a href="#cb32-91" aria-hidden="true" tabindex="-1"></a>If for some reason you want to have "beta" written on your plot, it must be in quotes.</span>
+<span id="cb32-92"><a href="#cb32-92" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb32-95"><a href="#cb32-95" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb32-96"><a href="#cb32-96" aria-hidden="true" tabindex="-1"></a><span class="co">#| label: expression3</span></span>
+<span id="cb32-97"><a href="#cb32-97" aria-hidden="true" tabindex="-1"></a><span class="co">#| fig-alt: &gt;</span></span>
+<span id="cb32-98"><a href="#cb32-98" aria-hidden="true" tabindex="-1"></a><span class="co">#|   A copy of the previous plot with an expression that includes a</span></span>
+<span id="cb32-99"><a href="#cb32-99" aria-hidden="true" tabindex="-1"></a><span class="co">#|   Greek symbol.</span></span>
+<span id="cb32-100"><a href="#cb32-100" aria-hidden="true" tabindex="-1"></a>g <span class="sc">+</span> <span class="fu">labs</span>(<span class="at">x =</span> <span class="fu">expression</span>(TP<span class="sc">~</span>concentration<span class="sc">~</span>mu<span class="sc">*</span>g))</span>
+<span id="cb32-101"><a href="#cb32-101" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb32-102"><a href="#cb32-102" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb32-103"><a href="#cb32-103" aria-hidden="true" tabindex="-1"></a>Subscript or superscript can be added to a string using <span class="in">`^`</span> and <span class="in">`[]`</span> notation respectively. </span>
+<span id="cb32-104"><a href="#cb32-104" aria-hidden="true" tabindex="-1"></a>If you want more than one symbol to be in superscript, you need to enclose them in braces <span class="in">`{}`</span>.</span>
+<span id="cb32-105"><a href="#cb32-105" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb32-108"><a href="#cb32-108" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb32-109"><a href="#cb32-109" aria-hidden="true" tabindex="-1"></a><span class="co">#| label: expression4</span></span>
+<span id="cb32-110"><a href="#cb32-110" aria-hidden="true" tabindex="-1"></a><span class="co">#| fig-alt: &gt;</span></span>
+<span id="cb32-111"><a href="#cb32-111" aria-hidden="true" tabindex="-1"></a><span class="co">#|   A copy of the previous plot with an expression that includes</span></span>
+<span id="cb32-112"><a href="#cb32-112" aria-hidden="true" tabindex="-1"></a><span class="co">#|   superscript text.</span></span>
+<span id="cb32-113"><a href="#cb32-113" aria-hidden="true" tabindex="-1"></a>g <span class="sc">+</span> <span class="fu">labs</span>(<span class="at">x =</span> <span class="fu">expression</span>(TP<span class="sc">~</span>concentration<span class="sc">~</span>mu<span class="sc">*</span>g<span class="sc">~</span>l<span class="sc">^-</span><span class="dv">1</span>))</span>
+<span id="cb32-114"><a href="#cb32-114" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb32-115"><a href="#cb32-115" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb32-116"><a href="#cb32-116" aria-hidden="true" tabindex="-1"></a>To start an <span class="in">`expression()`</span> with a superscript (or subscript), put <span class="in">`""`</span> first.</span>
+<span id="cb32-117"><a href="#cb32-117" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb32-118"><a href="#cb32-118" aria-hidden="true" tabindex="-1"></a><span class="in">```{r, eval = FALSE}</span></span>
+<span id="cb32-119"><a href="#cb32-119" aria-hidden="true" tabindex="-1"></a><span class="co">#| label: expression5</span></span>
+<span id="cb32-120"><a href="#cb32-120" aria-hidden="true" tabindex="-1"></a><span class="co">#| fig-alt: &gt;</span></span>
+<span id="cb32-121"><a href="#cb32-121" aria-hidden="true" tabindex="-1"></a><span class="co">#|   A copy of the previous plot with an expression that begins with</span></span>
+<span id="cb32-122"><a href="#cb32-122" aria-hidden="true" tabindex="-1"></a><span class="co">#|   superscript text.</span></span>
+<span id="cb32-123"><a href="#cb32-123" aria-hidden="true" tabindex="-1"></a>g <span class="sc">+</span> <span class="fu">labs</span>(<span class="at">x =</span> <span class="fu">expression</span>(<span class="st">""</span><span class="sc">^</span><span class="dv">14</span><span class="sc">*</span>C<span class="sc">~</span>years<span class="sc">~</span>BP))</span>
+<span id="cb32-124"><a href="#cb32-124" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb32-125"><a href="#cb32-125" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb32-126"><a href="#cb32-126" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb32-127"><a href="#cb32-127" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb32-130"><a href="#cb32-130" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb32-131"><a href="#cb32-131" aria-hidden="true" tabindex="-1"></a><span class="co">#| label: tbl-common-notation</span></span>
+<span id="cb32-132"><a href="#cb32-132" aria-hidden="true" tabindex="-1"></a><span class="co">#| tbl-caption: Some common notation</span></span>
+<span id="cb32-133"><a href="#cb32-133" aria-hidden="true" tabindex="-1"></a><span class="co">#| echo: false</span></span>
+<span id="cb32-134"><a href="#cb32-134" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb32-135"><a href="#cb32-135" aria-hidden="true" tabindex="-1"></a><span class="fu">tribble</span>(</span>
+<span id="cb32-136"><a href="#cb32-136" aria-hidden="true" tabindex="-1"></a><span class="sc">~</span>What, <span class="sc">~</span>How, <span class="sc">~</span>Output,         </span>
+<span id="cb32-137"><a href="#cb32-137" aria-hidden="true" tabindex="-1"></a><span class="st">"Lower-case Greek letters"</span>, <span class="st">"delta"</span>, <span class="st">"$$</span><span class="sc">\\</span><span class="st">delta$$"</span>,</span>
+<span id="cb32-138"><a href="#cb32-138" aria-hidden="true" tabindex="-1"></a><span class="st">"Upper-Case Greek Letters"</span>, <span class="st">"Delta"</span>, <span class="st">"$$</span><span class="sc">\\</span><span class="st">Delta$$"</span>,</span>
+<span id="cb32-139"><a href="#cb32-139" aria-hidden="true" tabindex="-1"></a><span class="st">"Subscript"</span>, <span class="st">"CO[2]"</span>, <span class="st">"$$CO_{2}$$"</span>,</span>
+<span id="cb32-140"><a href="#cb32-140" aria-hidden="true" tabindex="-1"></a><span class="st">"Superscript"</span>, <span class="st">"m^-2"</span>, <span class="st">"$$m^{-2}$$"</span>,</span>
+<span id="cb32-141"><a href="#cb32-141" aria-hidden="true" tabindex="-1"></a><span class="st">"Italics"</span>, <span class="st">"italic(Navicula)"</span>, <span class="st">"$$Navicula$$"</span></span>
+<span id="cb32-142"><a href="#cb32-142" aria-hidden="true" tabindex="-1"></a>) <span class="sc">|&gt;</span> </span>
+<span id="cb32-143"><a href="#cb32-143" aria-hidden="true" tabindex="-1"></a>  <span class="fu">gt</span>()</span>
+<span id="cb32-144"><a href="#cb32-144" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb32-145"><a href="#cb32-145" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb32-146"><a href="#cb32-146" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb32-147"><a href="#cb32-147" aria-hidden="true" tabindex="-1"></a>If you already have the expression as a string, you can use <span class="in">`str2expression()`</span> (or <span class="in">`parse()`</span> with the <span class="in">`text`</span> argument) to convert it into an expression.</span>
+<span id="cb32-148"><a href="#cb32-148" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb32-151"><a href="#cb32-151" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb32-152"><a href="#cb32-152" aria-hidden="true" tabindex="-1"></a><span class="co">#| label: str2expression</span></span>
+<span id="cb32-153"><a href="#cb32-153" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb32-154"><a href="#cb32-154" aria-hidden="true" tabindex="-1"></a>lab <span class="ot">&lt;-</span> <span class="st">"Wind~speed~m~s^-1"</span></span>
+<span id="cb32-155"><a href="#cb32-155" aria-hidden="true" tabindex="-1"></a><span class="fu">str2expression</span>(lab)</span>
+<span id="cb32-156"><a href="#cb32-156" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb32-157"><a href="#cb32-157" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb32-158"><a href="#cb32-158" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb32-159"><a href="#cb32-159" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb32-160"><a href="#cb32-160" aria-hidden="true" tabindex="-1"></a>::: callout-note</span>
+<span id="cb32-161"><a href="#cb32-161" aria-hidden="true" tabindex="-1"></a><span class="fu">## Exercise</span></span>
+<span id="cb32-162"><a href="#cb32-162" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb32-163"><a href="#cb32-163" aria-hidden="true" tabindex="-1"></a>1) Make the x-axis label read $Area~m^2$. </span>
+<span id="cb32-164"><a href="#cb32-164" aria-hidden="true" tabindex="-1"></a>The data are already loaded.</span>
+<span id="cb32-165"><a href="#cb32-165" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb32-166"><a href="#cb32-166" aria-hidden="true" tabindex="-1"></a>::: {.panel-tabset}</span>
+<span id="cb32-167"><a href="#cb32-167" aria-hidden="true" tabindex="-1"></a><span class="fu">## Code</span></span>
+<span id="cb32-168"><a href="#cb32-168" aria-hidden="true" tabindex="-1"></a><span class="in">```{webr-r}</span></span>
+<span id="cb32-169"><a href="#cb32-169" aria-hidden="true" tabindex="-1"></a><span class="in">ggplot(dat, aes(x = x, y = y)) +</span></span>
+<span id="cb32-170"><a href="#cb32-170" aria-hidden="true" tabindex="-1"></a><span class="in">  geom_point() + </span></span>
+<span id="cb32-171"><a href="#cb32-171" aria-hidden="true" tabindex="-1"></a><span class="in">  labs(x = ___)</span></span>
+<span id="cb32-172"><a href="#cb32-172" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb32-173"><a href="#cb32-173" aria-hidden="true" tabindex="-1"></a><span class="fu">## Hint</span></span>
+<span id="cb32-174"><a href="#cb32-174" aria-hidden="true" tabindex="-1"></a><span class="in">```{r expression1-solution}</span></span>
+<span id="cb32-175"><a href="#cb32-175" aria-hidden="true" tabindex="-1"></a><span class="co">#| eval = FALSE</span></span>
+<span id="cb32-176"><a href="#cb32-176" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb32-177"><a href="#cb32-177" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(dat, <span class="fu">aes</span>(<span class="at">x =</span> x, <span class="at">y =</span> y)) <span class="sc">+</span></span>
+<span id="cb32-178"><a href="#cb32-178" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
+<span id="cb32-179"><a href="#cb32-179" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="fu">expression</span>(Area<span class="sc">~</span>m<span class="sc">^</span><span class="dv">2</span>))</span>
+<span id="cb32-180"><a href="#cb32-180" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb32-181"><a href="#cb32-181" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb32-182"><a href="#cb32-182" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb32-183"><a href="#cb32-183" aria-hidden="true" tabindex="-1"></a>2) Make the x-axis label read $Flux~g~m^{-2}~yr^{-1}$.</span>
+<span id="cb32-184"><a href="#cb32-184" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb32-185"><a href="#cb32-185" aria-hidden="true" tabindex="-1"></a>::: {.panel-tabset}</span>
+<span id="cb32-186"><a href="#cb32-186" aria-hidden="true" tabindex="-1"></a><span class="fu">## Code</span></span>
+<span id="cb32-187"><a href="#cb32-187" aria-hidden="true" tabindex="-1"></a><span class="in">```{webr-r}</span></span>
+<span id="cb32-188"><a href="#cb32-188" aria-hidden="true" tabindex="-1"></a><span class="in">ggplot(dat, aes(x = x, y = y)) +</span></span>
+<span id="cb32-189"><a href="#cb32-189" aria-hidden="true" tabindex="-1"></a><span class="in">  geom_point() + </span></span>
+<span id="cb32-190"><a href="#cb32-190" aria-hidden="true" tabindex="-1"></a><span class="in">  labs(x = ___)</span></span>
+<span id="cb32-191"><a href="#cb32-191" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb32-192"><a href="#cb32-192" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb32-193"><a href="#cb32-193" aria-hidden="true" tabindex="-1"></a><span class="fu">## Hint</span></span>
+<span id="cb32-194"><a href="#cb32-194" aria-hidden="true" tabindex="-1"></a><span class="in">```{r expression2-solution}</span></span>
+<span id="cb32-195"><a href="#cb32-195" aria-hidden="true" tabindex="-1"></a><span class="co">#| eval = FALSE</span></span>
+<span id="cb32-196"><a href="#cb32-196" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb32-197"><a href="#cb32-197" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(dat, <span class="fu">aes</span>(<span class="at">x =</span> x, <span class="at">y =</span> y)) <span class="sc">+</span></span>
+<span id="cb32-198"><a href="#cb32-198" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
+<span id="cb32-199"><a href="#cb32-199" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="fu">expression</span>(Flux<span class="sc">~</span>g<span class="sc">~</span>m<span class="sc">^-</span><span class="dv">2</span><span class="sc">~</span>yr<span class="sc">^-</span><span class="dv">1</span>))</span>
+<span id="cb32-200"><a href="#cb32-200" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb32-201"><a href="#cb32-201" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb32-202"><a href="#cb32-202" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb32-203"><a href="#cb32-203" aria-hidden="true" tabindex="-1"></a>3) Make the x-axis label read $\delta^{15}N$.</span>
+<span id="cb32-204"><a href="#cb32-204" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb32-205"><a href="#cb32-205" aria-hidden="true" tabindex="-1"></a>::: {.panel-tabset}</span>
+<span id="cb32-206"><a href="#cb32-206" aria-hidden="true" tabindex="-1"></a><span class="fu">## Code</span></span>
+<span id="cb32-207"><a href="#cb32-207" aria-hidden="true" tabindex="-1"></a><span class="in">```{webr-r}</span></span>
+<span id="cb32-208"><a href="#cb32-208" aria-hidden="true" tabindex="-1"></a><span class="in">ggplot(dat, aes(x = x, y = y)) +</span></span>
+<span id="cb32-209"><a href="#cb32-209" aria-hidden="true" tabindex="-1"></a><span class="in">  geom_point() +</span></span>
+<span id="cb32-210"><a href="#cb32-210" aria-hidden="true" tabindex="-1"></a><span class="in">  labs(x = ___)</span></span>
+<span id="cb32-211"><a href="#cb32-211" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb32-212"><a href="#cb32-212" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb32-213"><a href="#cb32-213" aria-hidden="true" tabindex="-1"></a><span class="fu">## Hint</span></span>
+<span id="cb32-214"><a href="#cb32-214" aria-hidden="true" tabindex="-1"></a><span class="in">```{r expression3-solution}</span></span>
+<span id="cb32-215"><a href="#cb32-215" aria-hidden="true" tabindex="-1"></a><span class="co">#| eval = FALSE</span></span>
+<span id="cb32-216"><a href="#cb32-216" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb32-217"><a href="#cb32-217" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(dat, <span class="fu">aes</span>(<span class="at">x =</span> x, <span class="at">y =</span> y)) <span class="sc">+</span></span>
+<span id="cb32-218"><a href="#cb32-218" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
+<span id="cb32-219"><a href="#cb32-219" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="fu">expression</span>(delta<span class="sc">^</span><span class="dv">15</span><span class="sc">*</span>N))</span>
+<span id="cb32-220"><a href="#cb32-220" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb32-221"><a href="#cb32-221" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb32-222"><a href="#cb32-222" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb32-223"><a href="#cb32-223" aria-hidden="true" tabindex="-1"></a>4) Make the x-axis label read _Aulacoseira granulata_ var. _angustissima_.</span>
+<span id="cb32-224"><a href="#cb32-224" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb32-225"><a href="#cb32-225" aria-hidden="true" tabindex="-1"></a>::: {.panel-tabset}</span>
+<span id="cb32-226"><a href="#cb32-226" aria-hidden="true" tabindex="-1"></a><span class="fu">## Code</span></span>
+<span id="cb32-227"><a href="#cb32-227" aria-hidden="true" tabindex="-1"></a><span class="in">```{webr-r}</span></span>
+<span id="cb32-228"><a href="#cb32-228" aria-hidden="true" tabindex="-1"></a><span class="in">ggplot(dat, aes(x = x, y = y)) +</span></span>
+<span id="cb32-229"><a href="#cb32-229" aria-hidden="true" tabindex="-1"></a><span class="in">  geom_point() + </span></span>
+<span id="cb32-230"><a href="#cb32-230" aria-hidden="true" tabindex="-1"></a><span class="in">  labs(x = ___)</span></span>
+<span id="cb32-231"><a href="#cb32-231" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb32-232"><a href="#cb32-232" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb32-233"><a href="#cb32-233" aria-hidden="true" tabindex="-1"></a><span class="fu">## Hint</span></span>
+<span id="cb32-234"><a href="#cb32-234" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb32-235"><a href="#cb32-235" aria-hidden="true" tabindex="-1"></a><span class="in">```{r expression4-solution}</span></span>
+<span id="cb32-236"><a href="#cb32-236" aria-hidden="true" tabindex="-1"></a><span class="co">#| eval = FALSE</span></span>
+<span id="cb32-237"><a href="#cb32-237" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb32-238"><a href="#cb32-238" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(dat, <span class="fu">aes</span>(<span class="at">x =</span> x, <span class="at">y =</span> y)) <span class="sc">+</span></span>
+<span id="cb32-239"><a href="#cb32-239" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
+<span id="cb32-240"><a href="#cb32-240" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="fu">expression</span>(<span class="fu">italic</span>(Aulacoseira<span class="sc">~</span>granulata)<span class="sc">~</span>var.<span class="sc">~</span><span class="fu">italic</span>(angustissima)))</span>
+<span id="cb32-241"><a href="#cb32-241" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb32-242"><a href="#cb32-242" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb32-243"><a href="#cb32-243" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb32-244"><a href="#cb32-244" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb32-245"><a href="#cb32-245" aria-hidden="true" tabindex="-1"></a><span class="fu">## Parsing</span></span>
+<span id="cb32-246"><a href="#cb32-246" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb32-247"><a href="#cb32-247" aria-hidden="true" tabindex="-1"></a>Some functions such as <span class="in">`geom_text()`</span>, <span class="in">`facet_wrap()`</span> and <span class="in">`scale_x_discrete()`</span> do not accept expressions directly. </span>
+<span id="cb32-248"><a href="#cb32-248" aria-hidden="true" tabindex="-1"></a>Instead, they parse a string and convert it to an expression. </span>
+<span id="cb32-249"><a href="#cb32-249" aria-hidden="true" tabindex="-1"></a>Each function does this a different way!</span>
+<span id="cb32-250"><a href="#cb32-250" aria-hidden="true" tabindex="-1"></a>Usually it helps to use <span class="in">`mutate()`</span> to add columns with the parsable labels if necessary.</span>
+<span id="cb32-251"><a href="#cb32-251" aria-hidden="true" tabindex="-1"></a>Here is a minimal example that adds subscripts and superscripts to text, axis labels and facet strips. </span>
+<span id="cb32-252"><a href="#cb32-252" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb32-255"><a href="#cb32-255" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb32-256"><a href="#cb32-256" aria-hidden="true" tabindex="-1"></a><span class="co">#| label: parsed</span></span>
+<span id="cb32-257"><a href="#cb32-257" aria-hidden="true" tabindex="-1"></a><span class="co">#| fig-cap: Composition of Lake Aranguadi, Ethiopia (Wood and Talling 1988)</span></span>
+<span id="cb32-258"><a href="#cb32-258" aria-hidden="true" tabindex="-1"></a><span class="co">#| fig-alt: &gt;</span></span>
+<span id="cb32-259"><a href="#cb32-259" aria-hidden="true" tabindex="-1"></a><span class="co">#|   Barchart showing the chemical composition of Lake Aranguadi.</span></span>
+<span id="cb32-260"><a href="#cb32-260" aria-hidden="true" tabindex="-1"></a><span class="co">#|   Chemical formulae are given on the x-axis and above each bar.</span></span>
+<span id="cb32-261"><a href="#cb32-261" aria-hidden="true" tabindex="-1"></a><span class="co">#| fig-height: 5</span></span>
+<span id="cb32-262"><a href="#cb32-262" aria-hidden="true" tabindex="-1"></a><span class="co">#| fig-width: 7</span></span>
+<span id="cb32-263"><a href="#cb32-263" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb32-264"><a href="#cb32-264" aria-hidden="true" tabindex="-1"></a><span class="co"># collate data</span></span>
+<span id="cb32-265"><a href="#cb32-265" aria-hidden="true" tabindex="-1"></a>dat <span class="ot">&lt;-</span> <span class="fu">tibble</span>(</span>
+<span id="cb32-266"><a href="#cb32-266" aria-hidden="true" tabindex="-1"></a>  <span class="at">species =</span> <span class="fu">c</span>(<span class="st">"Na+"</span>, <span class="st">"K+"</span>, <span class="st">"Ca2+"</span>, <span class="st">"Mg2+"</span>, <span class="st">"Cl-"</span>, <span class="st">"SO42-"</span>, <span class="st">"HCO3-"</span>, <span class="st">"CO32-"</span>),</span>
+<span id="cb32-267"><a href="#cb32-267" aria-hidden="true" tabindex="-1"></a>  <span class="at">conc =</span> <span class="fu">c</span>(<span class="dv">368</span>, <span class="dv">59</span>, <span class="dv">7</span>, <span class="dv">70</span>, <span class="dv">142</span>, <span class="dv">17</span>, <span class="dv">1231</span>, <span class="dv">85</span>),</span>
+<span id="cb32-268"><a href="#cb32-268" aria-hidden="true" tabindex="-1"></a>  <span class="at">mol_mass =</span> <span class="fu">c</span>(</span>
+<span id="cb32-269"><a href="#cb32-269" aria-hidden="true" tabindex="-1"></a>    <span class="fl">22.99</span>, <span class="fl">39.10</span>, <span class="fl">40.08</span>, <span class="fl">24.31</span>, <span class="fl">35.45</span>, <span class="fl">96.06</span>, <span class="fl">61.02</span>, <span class="fl">60.01</span></span>
+<span id="cb32-270"><a href="#cb32-270" aria-hidden="true" tabindex="-1"></a>  ),</span>
+<span id="cb32-271"><a href="#cb32-271" aria-hidden="true" tabindex="-1"></a>  <span class="at">moles =</span> conc<span class="sc">/</span>mol_mass</span>
+<span id="cb32-272"><a href="#cb32-272" aria-hidden="true" tabindex="-1"></a>) <span class="sc">|&gt;</span> </span>
+<span id="cb32-273"><a href="#cb32-273" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(<span class="sc">-</span>mol_mass) <span class="sc">|&gt;</span></span>
+<span id="cb32-274"><a href="#cb32-274" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pivot_longer</span>(<span class="at">cols =</span> <span class="fu">c</span>(conc, moles), <span class="at">names_to =</span> <span class="st">"unit"</span>, <span class="at">values_to =</span> <span class="st">"value"</span>)</span>
+<span id="cb32-275"><a href="#cb32-275" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb32-276"><a href="#cb32-276" aria-hidden="true" tabindex="-1"></a><span class="co"># add a column that can be parsed as formatted labels</span></span>
+<span id="cb32-277"><a href="#cb32-277" aria-hidden="true" tabindex="-1"></a>dat <span class="ot">&lt;-</span> dat <span class="sc">|&gt;</span> </span>
+<span id="cb32-278"><a href="#cb32-278" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">labels =</span> <span class="fu">case_match</span>(species,</span>
+<span id="cb32-279"><a href="#cb32-279" aria-hidden="true" tabindex="-1"></a>    <span class="st">"Na+"</span> <span class="sc">~</span> <span class="st">"Na^'+'"</span>,</span>
+<span id="cb32-280"><a href="#cb32-280" aria-hidden="true" tabindex="-1"></a>    <span class="st">"K+"</span> <span class="sc">~</span> <span class="st">"K^'+'"</span>,</span>
+<span id="cb32-281"><a href="#cb32-281" aria-hidden="true" tabindex="-1"></a>    <span class="st">"Ca2+"</span> <span class="sc">~</span> <span class="st">"Ca^{2*'+'}"</span>,</span>
+<span id="cb32-282"><a href="#cb32-282" aria-hidden="true" tabindex="-1"></a>    <span class="st">"Mg2+"</span> <span class="sc">~</span> <span class="st">"Mg^{2*'+'}"</span>,</span>
+<span id="cb32-283"><a href="#cb32-283" aria-hidden="true" tabindex="-1"></a>    <span class="st">"Cl-"</span> <span class="sc">~</span> <span class="st">"Cl^'-'"</span>,</span>
+<span id="cb32-284"><a href="#cb32-284" aria-hidden="true" tabindex="-1"></a>    <span class="st">"SO42-"</span> <span class="sc">~</span> <span class="st">"SO[4]^{2*'-'}"</span>,</span>
+<span id="cb32-285"><a href="#cb32-285" aria-hidden="true" tabindex="-1"></a>    <span class="st">"HCO3-"</span> <span class="sc">~</span> <span class="st">"HCO[3]^'-'"</span>,</span>
+<span id="cb32-286"><a href="#cb32-286" aria-hidden="true" tabindex="-1"></a>    <span class="st">"CO32-"</span> <span class="sc">~</span> <span class="st">"CO[3]^{2*'-'}"</span></span>
+<span id="cb32-287"><a href="#cb32-287" aria-hidden="true" tabindex="-1"></a>  )) <span class="sc">|&gt;</span> </span>
+<span id="cb32-288"><a href="#cb32-288" aria-hidden="true" tabindex="-1"></a>  <span class="co"># convert into factor to ensure plotting order</span></span>
+<span id="cb32-289"><a href="#cb32-289" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">labels =</span> <span class="fu">factor</span>(labels)) <span class="sc">|&gt;</span> </span>
+<span id="cb32-290"><a href="#cb32-290" aria-hidden="true" tabindex="-1"></a>  <span class="co"># make units column parsable as expression</span></span>
+<span id="cb32-291"><a href="#cb32-291" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">unit =</span> <span class="fu">case_match</span>(unit,</span>
+<span id="cb32-292"><a href="#cb32-292" aria-hidden="true" tabindex="-1"></a>    <span class="st">"conc"</span> <span class="sc">~</span> <span class="st">"mg %.% l^{-1}"</span>,</span>
+<span id="cb32-293"><a href="#cb32-293" aria-hidden="true" tabindex="-1"></a>    <span class="st">"moles"</span> <span class="sc">~</span> <span class="st">"mmol %.% l^{-1}"</span></span>
+<span id="cb32-294"><a href="#cb32-294" aria-hidden="true" tabindex="-1"></a>  )) </span>
+<span id="cb32-295"><a href="#cb32-295" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb32-296"><a href="#cb32-296" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb32-297"><a href="#cb32-297" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb32-298"><a href="#cb32-298" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(dat, <span class="fu">aes</span>(<span class="at">x =</span> labels, <span class="at">y =</span> value)) <span class="sc">+</span></span>
+<span id="cb32-299"><a href="#cb32-299" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_col</span>() <span class="sc">+</span></span>
+<span id="cb32-300"><a href="#cb32-300" aria-hidden="true" tabindex="-1"></a>  <span class="co"># use parse argument in geom_text()</span></span>
+<span id="cb32-301"><a href="#cb32-301" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_text</span>(<span class="fu">aes</span>(<span class="at">label =</span> labels), </span>
+<span id="cb32-302"><a href="#cb32-302" aria-hidden="true" tabindex="-1"></a>            <span class="at">parse =</span> <span class="cn">TRUE</span>, </span>
+<span id="cb32-303"><a href="#cb32-303" aria-hidden="true" tabindex="-1"></a>            <span class="at">vjust =</span> <span class="sc">-</span><span class="fl">0.1</span> <span class="co"># move text up slightly</span></span>
+<span id="cb32-304"><a href="#cb32-304" aria-hidden="true" tabindex="-1"></a>            ) <span class="sc">+</span>  </span>
+<span id="cb32-305"><a href="#cb32-305" aria-hidden="true" tabindex="-1"></a>  <span class="co"># use parse function to make expressions for scale_x_discrete()</span></span>
+<span id="cb32-306"><a href="#cb32-306" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_x_discrete</span>(<span class="at">labels =</span> <span class="fu">parse</span>(<span class="at">text =</span> <span class="fu">levels</span>(dat<span class="sc">$</span>labels))) <span class="sc">+</span></span>
+<span id="cb32-307"><a href="#cb32-307" aria-hidden="true" tabindex="-1"></a>  <span class="co"># use labeller argument in facet_wrap to parse strip labels</span></span>
+<span id="cb32-308"><a href="#cb32-308" aria-hidden="true" tabindex="-1"></a>  <span class="fu">facet_wrap</span>(<span class="fu">vars</span>(unit), <span class="at">labeller =</span> <span class="st">"label_parsed"</span>, <span class="at">scale =</span> <span class="st">"free_y"</span>) <span class="sc">+</span></span>
+<span id="cb32-309"><a href="#cb32-309" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"Ion"</span>, <span class="at">y =</span> <span class="st">"Concentration"</span>) </span>
+<span id="cb32-310"><a href="#cb32-310" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb32-311"><a href="#cb32-311" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb32-312"><a href="#cb32-312" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb32-313"><a href="#cb32-313" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb32-314"><a href="#cb32-314" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb32-315"><a href="#cb32-315" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb32-316"><a href="#cb32-316" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb32-317"><a href="#cb32-317" aria-hidden="true" tabindex="-1"></a><span class="fu">## Troubleshooting</span></span>
+<span id="cb32-318"><a href="#cb32-318" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb32-319"><a href="#cb32-319" aria-hidden="true" tabindex="-1"></a>Expressions, are quite tricky to get right. </span>
+<span id="cb32-320"><a href="#cb32-320" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb32-321"><a href="#cb32-321" aria-hidden="true" tabindex="-1"></a>Here are some examples of errors and how to interpret them.</span>
+<span id="cb32-322"><a href="#cb32-322" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb32-325"><a href="#cb32-325" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb32-326"><a href="#cb32-326" aria-hidden="true" tabindex="-1"></a><span class="co">#| error: true</span></span>
+<span id="cb32-327"><a href="#cb32-327" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb32-328"><a href="#cb32-328" aria-hidden="true" tabindex="-1"></a><span class="fu">expression</span>(Wind speed m<span class="sc">%.%</span>s<span class="sc">^-</span><span class="dv">1</span>)</span>
+<span id="cb32-329"><a href="#cb32-329" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb32-330"><a href="#cb32-330" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb32-331"><a href="#cb32-331" aria-hidden="true" tabindex="-1"></a>You cannot have spaces in expressions unless you quote them.</span>
+<span id="cb32-332"><a href="#cb32-332" aria-hidden="true" tabindex="-1"></a>You can use a <span class="in">`~`</span> instead of a space.</span>
+<span id="cb32-333"><a href="#cb32-333" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb32-336"><a href="#cb32-336" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb32-337"><a href="#cb32-337" aria-hidden="true" tabindex="-1"></a><span class="co">#| error: true</span></span>
+<span id="cb32-338"><a href="#cb32-338" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb32-339"><a href="#cb32-339" aria-hidden="true" tabindex="-1"></a><span class="fu">expression</span>(Wind<span class="sc">~</span>speed<span class="sc">~</span>m<span class="sc">%.%</span>s<span class="sc">^-</span><span class="dv">1</span>)</span>
+<span id="cb32-340"><a href="#cb32-340" aria-hidden="true" tabindex="-1"></a><span class="co"># or</span></span>
+<span id="cb32-341"><a href="#cb32-341" aria-hidden="true" tabindex="-1"></a><span class="fu">expression</span>(<span class="st">"Wind speed m"</span><span class="sc">%.%</span>s<span class="sc">^-</span><span class="dv">1</span>)</span>
+<span id="cb32-342"><a href="#cb32-342" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb32-343"><a href="#cb32-343" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb32-344"><a href="#cb32-344" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb32-347"><a href="#cb32-347" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb32-348"><a href="#cb32-348" aria-hidden="true" tabindex="-1"></a><span class="co">#| error: true</span></span>
+<span id="cb32-349"><a href="#cb32-349" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb32-350"><a href="#cb32-350" aria-hidden="true" tabindex="-1"></a><span class="fu">expression</span>(Ca<span class="sc">^</span><span class="dv">2</span><span class="sc">+</span>)</span>
+<span id="cb32-351"><a href="#cb32-351" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb32-352"><a href="#cb32-352" aria-hidden="true" tabindex="-1"></a>The <span class="in">`+`</span> is a mathematical symbol that expects another symbol after it. </span>
+<span id="cb32-353"><a href="#cb32-353" aria-hidden="true" tabindex="-1"></a>To make it work here, quote the <span class="in">`+`</span> or the <span class="in">`2+`</span>.</span>
+<span id="cb32-354"><a href="#cb32-354" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb32-357"><a href="#cb32-357" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb32-358"><a href="#cb32-358" aria-hidden="true" tabindex="-1"></a><span class="co">#| error: true</span></span>
+<span id="cb32-359"><a href="#cb32-359" aria-hidden="true" tabindex="-1"></a><span class="fu">expression</span>(Ca<span class="sc">^</span><span class="dv">2</span><span class="sc">*</span><span class="st">'+'</span>)</span>
+<span id="cb32-360"><a href="#cb32-360" aria-hidden="true" tabindex="-1"></a><span class="co"># or</span></span>
+<span id="cb32-361"><a href="#cb32-361" aria-hidden="true" tabindex="-1"></a><span class="fu">expression</span>(Ca<span class="sc">^</span><span class="st">"2+"</span>)</span>
+<span id="cb32-362"><a href="#cb32-362" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb32-363"><a href="#cb32-363" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb32-364"><a href="#cb32-364" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb32-365"><a href="#cb32-365" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb32-368"><a href="#cb32-368" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb32-369"><a href="#cb32-369" aria-hidden="true" tabindex="-1"></a><span class="co">#| error: true</span></span>
+<span id="cb32-370"><a href="#cb32-370" aria-hidden="true" tabindex="-1"></a><span class="fu">expression</span>(<span class="fu">italic</span>(Betula<span class="sc">~</span>nana)<span class="sc">~</span>%)</span>
+<span id="cb32-371"><a href="#cb32-371" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb32-372"><a href="#cb32-372" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb32-373"><a href="#cb32-373" aria-hidden="true" tabindex="-1"></a>The <span class="in">`%`</span> is a special character, so it need to be quoted. </span>
+<span id="cb32-374"><a href="#cb32-374" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb32-377"><a href="#cb32-377" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb32-378"><a href="#cb32-378" aria-hidden="true" tabindex="-1"></a><span class="fu">expression</span>(<span class="fu">italic</span>(Betula<span class="sc">~</span>nana)<span class="sc">~</span><span class="st">'%'</span>)</span>
+<span id="cb32-379"><a href="#cb32-379" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb32-380"><a href="#cb32-380" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb32-381"><a href="#cb32-381" aria-hidden="true" tabindex="-1"></a>::: callout-note</span>
+<span id="cb32-382"><a href="#cb32-382" aria-hidden="true" tabindex="-1"></a><span class="fu">## Exercise</span></span>
+<span id="cb32-383"><a href="#cb32-383" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb32-384"><a href="#cb32-384" aria-hidden="true" tabindex="-1"></a>Fix the following broken expressions</span>
+<span id="cb32-385"><a href="#cb32-385" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb32-386"><a href="#cb32-386" aria-hidden="true" tabindex="-1"></a>::: {.panel-tabset}</span>
+<span id="cb32-387"><a href="#cb32-387" aria-hidden="true" tabindex="-1"></a><span class="fu">## Code</span></span>
+<span id="cb32-388"><a href="#cb32-388" aria-hidden="true" tabindex="-1"></a><span class="in">```{webr-r}</span></span>
+<span id="cb32-389"><a href="#cb32-389" aria-hidden="true" tabindex="-1"></a><span class="in">expression(Wet mass g m^-2)</span></span>
+<span id="cb32-390"><a href="#cb32-390" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb32-391"><a href="#cb32-391" aria-hidden="true" tabindex="-1"></a><span class="fu">## Hint</span></span>
+<span id="cb32-392"><a href="#cb32-392" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb32-393"><a href="#cb32-393" aria-hidden="true" tabindex="-1"></a>No spaces allowed in expressions. Quote or replace spaces with <span class="in">`~`</span>.  </span>
+<span id="cb32-394"><a href="#cb32-394" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb32-395"><a href="#cb32-395" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb32-396"><a href="#cb32-396" aria-hidden="true" tabindex="-1"></a>::: {.panel-tabset}</span>
+<span id="cb32-397"><a href="#cb32-397" aria-hidden="true" tabindex="-1"></a><span class="fu">## Code</span></span>
+<span id="cb32-398"><a href="#cb32-398" aria-hidden="true" tabindex="-1"></a><span class="in">```{webr-r}</span></span>
+<span id="cb32-399"><a href="#cb32-399" aria-hidden="true" tabindex="-1"></a><span class="in">ggplot() + </span></span>
+<span id="cb32-400"><a href="#cb32-400" aria-hidden="true" tabindex="-1"></a><span class="in">  labs(x = expression(italics(Dyras~octopetala)~"%"))</span></span>
+<span id="cb32-401"><a href="#cb32-401" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb32-402"><a href="#cb32-402" aria-hidden="true" tabindex="-1"></a><span class="fu">## Hint</span></span>
+<span id="cb32-403"><a href="#cb32-403" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb32-404"><a href="#cb32-404" aria-hidden="true" tabindex="-1"></a>Be careful with spelling! italic not italics.</span>
+<span id="cb32-405"><a href="#cb32-405" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb32-406"><a href="#cb32-406" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb32-407"><a href="#cb32-407" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb32-408"><a href="#cb32-408" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb32-409"><a href="#cb32-409" aria-hidden="true" tabindex="-1"></a><span class="fu">## Other tips</span></span>
+<span id="cb32-410"><a href="#cb32-410" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb32-411"><a href="#cb32-411" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="in">`bquote()`</span> (or <span class="in">`label_bquote()`</span> for facet labels) can be useful if you want to include an R object in the expression. </span>
+<span id="cb32-412"><a href="#cb32-412" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="in">`demo(plotmath)`</span> and <span class="in">`?plotmath`</span> are very useful once you have understood the basics.</span>
+<span id="cb32-413"><a href="#cb32-413" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Some symbols are not defined by <span class="in">`plotmath`</span> but can be included using <span class="co">[</span><span class="ot">unicode</span><span class="co">](http://www.unicode.org/charts/)</span>. </span>
+<span id="cb32-414"><a href="#cb32-414" aria-hidden="true" tabindex="-1"></a>For example a per mil symbol (‰) - <span class="in">`\u2030`</span> </span>
+<span id="cb32-417"><a href="#cb32-417" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb32-418"><a href="#cb32-418" aria-hidden="true" tabindex="-1"></a><span class="co">#| eval: false</span></span>
+<span id="cb32-419"><a href="#cb32-419" aria-hidden="true" tabindex="-1"></a><span class="fu">expression</span>(delta<span class="sc">^</span><span class="dv">15</span><span class="sc">*</span>N<span class="sc">~</span>(<span class="st">'\u2030'</span>))</span>
+<span id="cb32-420"><a href="#cb32-420" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb32-421"><a href="#cb32-421" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb32-422"><a href="#cb32-422" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>non-alphanumeric symbols (e.g. %) may need quoting</span>
+<span id="cb32-423"><a href="#cb32-423" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="co">[</span><span class="ot">LaTeX equations</span><span class="co">](https://biostats-r.github.io/biostats/rmarkdown/figures-tables-and-equations.html#equations)</span> can be converted to expressions with <span class="in">`latex2exp::TeX`</span>.</span>
+<span id="cb32-424"><a href="#cb32-424" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb32-425"><a href="#cb32-425" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb32-426"><a href="#cb32-426" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb32-427"><a href="#cb32-427" aria-hidden="true" tabindex="-1"></a>If you understand these examples, you should be able to use the remainder of the functionality demonstrated by <span class="in">`demo(plotmath)`</span> and at <span class="in">`?plotmath`</span>.</span>
+<span id="cb32-428"><a href="#cb32-428" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb32-429"><a href="#cb32-429" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb32-430"><a href="#cb32-430" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb32-431"><a href="#cb32-431" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb32-432"><a href="#cb32-432" aria-hidden="true" tabindex="-1"></a>::: {.column-margin}</span>
+<span id="cb32-433"><a href="#cb32-433" aria-hidden="true" tabindex="-1"></a><span class="fu">### Contributors {.unlisted .unnumbered}</span></span>
+<span id="cb32-434"><a href="#cb32-434" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb32-435"><a href="#cb32-435" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>Richard Telford</span>
+<span id="cb32-436"><a href="#cb32-436" aria-hidden="true" tabindex="-1"></a>:::</span>
 </code></pre></div><button title="Copy to Clipboard" class="code-copy-button" data-in-quarto-modal=""><i class="bi"></i></button></div>
 </div></div></div></div></div>
 </div> <!-- /content -->

@@ -91,13 +91,13 @@ If you are installing packages with `install.packages()`, you are, by default, i
 
 Not all R packages are available on CRAN.
 Some packages are only available on [GitHub.com](github.com).
-If you want to install a package published on [GitHub](https://github.com/){target="_blank"}, you may use the function `remotes::install_github()` (install `remotes` from CRAN first).
+If you want to install a package published on [GitHub](https://github.com/){target="_blank"}, you may use the function `pak::pak()` (install `pak` from CRAN first).
 You need the repo name from GitHub, this given as `"name_of_owner/name_of_repo"` Here also, you must add quotation marks `"` `"`.
 
-```{r install-github, eval = FALSE}
-install.packages("remotes")
+```{r pak, eval = FALSE}
+install.packages("pak")
 # ggvegan for plotting ordinations is only on github
-remotes::install_github(repo = "gavinsimpson/ggvegan")
+pak::pak(repo = "gavinsimpson/ggvegan")
 ```
 
 ## Recommended packages
@@ -105,14 +105,14 @@ remotes::install_github(repo = "gavinsimpson/ggvegan")
 These packages are ones we recommend you install now:
 
 -   `usethis`
--   `remotes`
+-   `pak`
 -   `tidyverse`
 -   `biostats.tutorials`
 
 These packages will be used throughout the website.
 There are other packages we will install later.
 
-### `usethis` and `remotes`
+### `usethis` and `pak`
 
 These are utility packages that we will use to download course material and packages from GitHub.
 
@@ -140,8 +140,8 @@ Several of the upcoming chapters refer to this package.
 Install `biostats.tutorials` with this code:
 
 ```{r install-the-tutorial, echo=TRUE, eval=FALSE}
-# install.packages("remotes")
-remotes::install_github("biostats-r/biostats.tutorials")
+# install.packages("pak")
+pak::pak("biostats-r/biostats.tutorials")
 ```
 
 Now load the package with `library(biostats.tutorials)` and the tutorials should appear in the tab `Tutorial` (see @sec-tutorial-tab).
@@ -151,7 +151,7 @@ Click the "Start Tutorial" button to start the tutorial (this may take a few sec
 ::: callout-note
 ## Exercise
 
-Install `tidyverse`, and `remotes` from CRAN and `biostats.tutorials` from GitHub using the code above.
+Install `tidyverse`, and `pak` from CRAN and `biostats.tutorials` from GitHub using the code above.
 :::
 
 ## Debugging failed package installation

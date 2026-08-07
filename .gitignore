@@ -44,4 +44,7 @@ flate-ihht-akvakulturregisteret20220928.geojson
 GEBCO_16_Sep_2021_dd5119fb228f
 05280_20230421-012359.xlsx
 50N000E_20101117_gmted_med300.tif
- 
+
+
+/.quarto/
+**/*.quarto_ipynb
